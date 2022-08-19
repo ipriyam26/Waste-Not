@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/screens/chat.dart';
 import 'package:waste_not/screens/home.dart';
 import 'package:waste_not/screens/messages.dart';
+import 'package:waste_not/screens/food.dart';
+import 'package:waste_not/screens/splash.dart';
 
 void main() => runApp(MyApp());
 
