@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waste_not/screens/food.dart';
+import 'package:waste_not/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: Food(),
+      home: const SplashScreen(),
     );
   }
 }
