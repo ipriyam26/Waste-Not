@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:waste_not/screens/chat.dart';
 import 'package:waste_not/screens/home.dart';
+import 'package:waste_not/screens/messages.dart';
 
 void main() => runApp(MyApp());
 

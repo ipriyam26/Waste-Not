@@ -15,7 +15,7 @@ class search_container extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 36.h,
-      width: 362.w,
+      width: 311.w,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10),
         child: TextField(
