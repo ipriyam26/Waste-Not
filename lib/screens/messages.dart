@@ -8,7 +8,7 @@ class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomNavigationBar(),
+      bottomNavigationBar: const CustomNavigationBar(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -41,7 +41,7 @@ class Messages extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               itemBuilder: (i, context) {
-                return MessageTile();
+                return const MessageTile();
               },
               itemCount: 12,
             ),
@@ -79,16 +79,16 @@ class MessageTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
+                const Text(
                   'Danny Hopkins',
                   style: TextStyle(
                       color: Colors.black, fontWeight: FontWeight.bold),
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text('dannylove@gmail.com')
+                const Text('dannylove@gmail.com')
               ],
             ),
-            Text('08:43')
+            const Text('08:43')
           ],
         ),
       ),

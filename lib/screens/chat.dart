@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/keyboard.dart';
 
 class ChatPage extends StatelessWidget {
+  const ChatPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -15,7 +16,7 @@ class ChatPage extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.arrow_back_ios,
                     color: Colors.black,
                   ),
@@ -35,8 +36,8 @@ class ChatPage extends StatelessWidget {
                 )
               ],
             ),
-            Expanded(child: DemoMsgList()),
-            SendingKeyboard(),
+            const Expanded(child: DemoMsgList()),
+            const SendingKeyboard(),
           ],
         ),
         appBar: AppBar(
@@ -81,7 +82,7 @@ class IconBorder extends StatelessWidget {
               color: Theme.of(context).cardColor,
             )),
         child: Padding(
-          padding: EdgeInsets.all(4),
+          padding: const EdgeInsets.all(4),
           child: Icon(
             icon,
             size: 16,
@@ -98,7 +99,7 @@ class AppBarTitle extends StatelessWidget {
     return Row(
       children: [
         // Avatar.small(url: messageData.profilePicture),
-        SizedBox(
+        const SizedBox(
           width: 16,
         ),
         Expanded(
@@ -106,15 +107,15 @@ class AppBarTitle extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('fgdfg',
+            const Text('fgdfg',
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style:  TextStyle(
                   fontSize: 14,
                 )),
-            SizedBox(
+            const SizedBox(
               height: 2,
             ),
-            Text(
+            const Text(
               'Online',
               style: TextStyle(
                   fontSize: 10,
@@ -176,17 +177,17 @@ class DateLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 32),
+        padding: const EdgeInsets.symmetric(vertical: 32),
         child: Container(
           decoration: BoxDecoration(
             color: Theme.of(context).cardColor,
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
+            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
             child: Text(
               label,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 12,
                 color: Colors.black,
@@ -221,23 +222,23 @@ class _MessageTile extends StatelessWidget {
               decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   boxShadow: [
-                    BoxShadow(
-                      offset: Offset(2, 2),
+                    const BoxShadow(
+                      offset: const Offset(2, 2),
                       blurRadius: 12,
                       color: Color.fromRGBO(0, 0, 0, 0.32),
                     )
                   ],
-                  borderRadius: BorderRadius.all(Radius.circular(_br))),
+                  borderRadius: const BorderRadius.all(Radius.circular(_br))),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                 child: Text(message),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 messageData,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 10,
                   fontWeight: FontWeight.bold,
@@ -281,12 +282,12 @@ class _MessageOwnTile extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(_br))),
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                 child: Text(message),
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: 8.0),
+              padding: const EdgeInsets.only(top: 8.0),
               child: Text(
                 messageData,
                 style: const TextStyle(

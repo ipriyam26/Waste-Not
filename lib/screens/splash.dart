@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:waste_not/screens/food.dart';
+import 'package:waste_not/screens/home.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -17,14 +17,14 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         const Duration(seconds: 3),
         () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Food())));
+            context, MaterialPageRoute(builder: (context) =>  Home())));
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Image.asset('assets/images/WN.png'),
+      child: Image.asset('assets/WN 1.png'),
     );
   }
 }
