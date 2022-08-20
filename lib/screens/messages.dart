@@ -8,7 +8,7 @@ class Messages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomNavigationBar(),
+      bottomNavigationBar: const CustomNavigationBar(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -39,6 +39,7 @@ class Messages extends StatelessWidget {
             ),
           ),
           Expanded(
+
             child: ListView(
               children: [
                 MessageTile(
@@ -77,6 +78,7 @@ class Messages extends StatelessWidget {
                   image: 'assets/user6.png',
                 )
               ],
+
             ),
           )
         ],
@@ -111,6 +113,7 @@ class MessageTile extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+
                 CircleAvatar(
                   radius: 45.sp,
                   backgroundColor: Colors.transparent,
@@ -132,9 +135,10 @@ class MessageTile extends StatelessWidget {
                     Text(message)
                   ],
                 ),
+
               ],
             ),
-            Text('08:43')
+            const Text('08:43')
           ],
         ),
       ),
