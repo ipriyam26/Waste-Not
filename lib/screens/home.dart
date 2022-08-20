@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:waste_not/screens/filter.dart';
 import 'package:waste_not/screens/food.dart';
 
 import '../widgets/navigation_bar.dart';
@@ -18,7 +19,7 @@ class Home extends StatelessWidget {
           height: 100.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image:  AssetImage('assets/WN 1.png'), fit: BoxFit.fill),
+                image: AssetImage('assets/WN 1.png'), fit: BoxFit.fill),
           ),
         ),
         title: Row(
@@ -55,7 +56,15 @@ class Home extends StatelessWidget {
               SizedBox(
                 width: 1.w,
               ),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.add_a_photo))
+              IconButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>  FilterScreen()),
+                    );
+                  },
+                  icon: const Icon(Icons.add_a_photo))
             ],
           ),
           Expanded(
@@ -81,7 +90,8 @@ class Meal extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: InkWell(
         onTap: () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) =>  const Food()));
+          Navigator.pushReplacement(
+              context, MaterialPageRoute(builder: (context) => const Food()));
         },
         child: Container(
           decoration: BoxDecoration(
