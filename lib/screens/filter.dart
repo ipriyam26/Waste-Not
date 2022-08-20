@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:waste_not/widgets/navigation_bar.dart';
 
 class FilterScreen extends StatelessWidget {
   FilterScreen({Key? key}) : super(key: key);
@@ -36,7 +37,17 @@ class FilterScreen extends StatelessWidget {
     'image':'https://source.unsplash.com/random/300%C3%97300/?bread',
     'color':const Color(0xffECDAF2),
     'border_color': const Color(0xffD3B0E0)
-   }
+   },{
+    'name':'Dairy \n& Eggs',
+    'image':'https://source.unsplash.com/random/300%C3%97300/?dairy',
+    'color':const Color(0xffFFF9E5),
+    'border_color': const Color(0xffFFF9E5)
+   },{
+    'name':'Beverages',
+    'image':'https://source.unsplash.com/random/300%C3%97300/?beverages',
+    'color':const Color(0xffD2E7F2),
+    'border_color': const Color(0xffD2E7F2)
+   },
   ];
 
   final String location = 'Mumbai';
@@ -44,6 +55,7 @@ class FilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: CustomNavigationBar(),
         body: Container(
       margin: EdgeInsets.only(
         left: 25.w,
@@ -74,36 +86,26 @@ class FilterScreen extends StatelessWidget {
                   fontSize: 12.h,
                   color: Colors.grey[600])),
         ),
+ Container(
 
-        Container(
-          height: 180.h,
-          width: 160.w,
-          
-        //add border radius of 18px
-        decoration: BoxDecoration(
-                    color: categories[0]['color'],
+width: 325.w,
+height: 340.h,
+   child: GridView(
+    
+    physics: const ScrollPhysics(
+      parent: BouncingScrollPhysics(),
 
-          borderRadius: BorderRadius.all(Radius.circular(18.w)),
-          border: Border.all(
-            color: categories[0]['border_color'],
-            width: 1.w,
-          ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-           Image.network(categories[0]['image']),
-            Text(categories[0]['name'],
-            textAlign: TextAlign.center,
-                style: TextStyle(
-                  
-                    fontSize: 16.h,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w600)),
-          ],
-        ),
-        )
+    ),
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
+    mainAxisSpacing: 15.h,
+    crossAxisSpacing: 12.h,
+    ),
+            children: [
+              for (var i = 0; i < categories.length; i++)
+              FoodType(category: categories[i]),
+            ],
+   ),
+ ),
         ],
       ),
     ));
@@ -132,6 +134,51 @@ class FilterScreen extends StatelessWidget {
             ),
           ],
         );
+  }
+}
+
+class FoodType extends StatelessWidget {
+  const FoodType({
+    Key? key,
+    required this.category,
+  }) : super(key: key);
+
+  final Map<String, dynamic> category;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 180.h,
+      width: 160.w,
+      
+    //add border radius of 18px
+    decoration: BoxDecoration(
+                color: category['color'],
+
+      borderRadius: BorderRadius.all(Radius.circular(18.w)),
+      border: Border.all(
+        color: category['border_color'],
+        width: 1.w,
+      ),
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+       Image.network(category['image'],
+       width: 102.71.w,
+       height: 71.3.h,
+       ),
+        Text(category['name'],
+        textAlign: TextAlign.center,
+            style: TextStyle(
+              
+                fontSize: 16.h,
+                color: Colors.black,
+                fontWeight: FontWeight.w600)),
+      ],
+    ),
+    );
   }
 }
 
