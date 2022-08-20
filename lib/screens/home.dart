@@ -58,11 +58,11 @@ class Home extends StatelessWidget {
               ),
               IconButton(
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>  FilterScreen()),
-                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //       builder: (context) =>  FilterScreen()),
+                    // );
                   },
                   icon: const Icon(Icons.add_a_photo))
             ],
