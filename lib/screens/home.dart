@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/screens/filter.dart';
 import 'package:waste_not/screens/food.dart';
@@ -6,6 +7,8 @@ import 'package:waste_not/widgets/meal.dart';
 
 import '../widgets/navigation_bar.dart';
 import '../widgets/search_container.dart';
+import '../widgets/search_popup.dart';
+import '../widgets/sort_popup.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -58,14 +61,21 @@ class Home extends StatelessWidget {
                 width: 1.w,
               ),
               IconButton(
-                  onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //       builder: (context) =>  FilterScreen()),
-                    // );
-                  },
-                  icon: const Icon(Icons.add_a_photo))
+
+                  onPressed: () {},
+                  icon: GestureDetector(
+                      onTap: () {
+                        showAnimatedDialog(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return SortPopup();
+                          },
+                          animationType: DialogTransitionType.fadeScale,
+                        );
+                      },
+                      child: Icon(Icons.filter_list)))
+
             ],
           ),
           Expanded(

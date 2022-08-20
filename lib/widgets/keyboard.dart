@@ -38,6 +38,13 @@ class SendingKeyboard extends StatelessWidget {
               ),
             ),
           )),
+
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.send,
+                color: Colors.black,
+              ))
           // Padding(
           //   padding: EdgeInsets.only(left: 12, right: 24.0),
           //   child: GlowingActionButton(
