@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../widgets/navigation_bar.dart';
 import '../widgets/search_container.dart';
+import '../widgets/search_popup.dart';
+import '../widgets/sort_popup.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -52,7 +55,20 @@ class Home extends StatelessWidget {
               SizedBox(
                 width: 4.w,
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.add_a_photo))
+              IconButton(
+                  onPressed: () {},
+                  icon: GestureDetector(
+                      onTap: () {
+                        showAnimatedDialog(
+                          context: context,
+                          barrierDismissible: true,
+                          builder: (BuildContext context) {
+                            return SortPopup();
+                          },
+                          animationType: DialogTransitionType.fadeScale,
+                        );
+                      },
+                      child: Icon(Icons.filter_list)))
             ],
           ),
           Expanded(

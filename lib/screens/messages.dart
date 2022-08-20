@@ -39,11 +39,44 @@ class Messages extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              itemBuilder: (i, context) {
-                return MessageTile();
-              },
-              itemCount: 12,
+            child: ListView(
+              children: [
+                MessageTile(
+                  username: 'Danny Hopkins',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user1.png',
+                ),
+                MessageTile(
+                  username: 'Bobby Langford',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user2.png',
+                ),
+                MessageTile(
+                  username: 'William Wiles',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user3.png',
+                ),
+                MessageTile(
+                  username: 'James Edelen',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user4.png',
+                ),
+                MessageTile(
+                  username: 'Jose Farmer',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user5.png',
+                ),
+                MessageTile(
+                  username: 'Frank Marten',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user6.png',
+                ),
+                MessageTile(
+                  username: 'Marzena Klasa',
+                  message: 'dannylove@gmail.com',
+                  image: 'assets/user6.png',
+                )
+              ],
             ),
           )
         ],
@@ -53,12 +86,20 @@ class Messages extends StatelessWidget {
 }
 
 class MessageTile extends StatelessWidget {
-  const MessageTile({Key? key}) : super(key: key);
+  const MessageTile(
+      {Key? key,
+      required this.username,
+      required this.message,
+      required this.image})
+      : super(key: key);
 
+  final String username;
+  final String message;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.symmetric(horizontal: 8.sp),
       child: Container(
         height: 100.w,
         width: 100.w,
@@ -67,25 +108,30 @@ class MessageTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            CircleAvatar(
-              radius: 45.sp,
-              backgroundColor: Colors.transparent,
-              child: Image.asset(
-                'assets/user1.png',
-                fit: BoxFit.fill,
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
-                  'Danny Hopkins',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                  overflow: TextOverflow.ellipsis,
+                CircleAvatar(
+                  radius: 45.sp,
+                  backgroundColor: Colors.transparent,
+                  child: Image.asset(
+                    image,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                Text('dannylove@gmail.com')
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      username,
+                      style: TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.bold),
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(message)
+                  ],
+                ),
               ],
             ),
             Text('08:43')

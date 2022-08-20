@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:waste_not/widgets/search_popup.dart';
 
 class search_container extends StatelessWidget {
   const search_container({
@@ -21,9 +23,21 @@ class search_container extends StatelessWidget {
         child: TextField(
           decoration: InputDecoration(
               border: InputBorder.none,
-              prefixIcon: Icon(
-                Icons.search,
-                color: Colors.black,
+              prefixIcon: GestureDetector(
+                onTap: () {
+                  showAnimatedDialog(
+                    context: context,
+                    barrierDismissible: true,
+                    builder: (BuildContext context) {
+                      return CustomAlertDialog();
+                    },
+                    animationType: DialogTransitionType.fadeScale,
+                  );
+                },
+                child: Icon(
+                  Icons.search,
+                  color: Colors.black,
+                ),
               ),
               hintText: heading),
         ),

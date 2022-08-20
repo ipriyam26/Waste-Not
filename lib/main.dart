@@ -6,6 +6,8 @@ import 'package:waste_not/screens/messages.dart';
 import 'package:waste_not/screens/food.dart';
 import 'package:waste_not/screens/splash.dart';
 
+import 'auth/presentation/login.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       builder: (context, a) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: Home(),
+          home: Login(),
         );
       },
     );

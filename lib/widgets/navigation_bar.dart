@@ -16,7 +16,7 @@ class CustomNavigationBar extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
-            Icons.home,
+            Icons.restaurant,
             size: 35,
             color: Color(0xFF00144F),
           ),
@@ -32,9 +32,9 @@ class CustomNavigationBar extends StatelessWidget {
         Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
-            Icons.notifications,
+            Icons.add,
             size: 30,
-            color: Color(0xFF00144F),
+            color: Colors.white,
           ),
         ),
         Padding(
