@@ -4,11 +4,9 @@ import 'package:waste_not/screens/profile.dart';
 import 'package:waste_not/screens/signup.dart';
 import 'package:waste_not/screens/splash.dart';
 
-
 import 'auth/presentation/login.dart';
 
 void main() => runApp(const MyApp());
-
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -25,7 +23,6 @@ class MyApp extends StatelessWidget {
         return const MaterialApp(
           debugShowCheckedModeBanner: false,
           home: SignupScreen(),
-
         );
       },
     );
