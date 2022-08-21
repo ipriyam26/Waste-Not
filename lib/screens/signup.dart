@@ -8,15 +8,12 @@ class SignupScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      body: Container(
-
-        child: Column(
+      body: Column(
 mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-          Image.asset('assets/WN 1.png'),
-          SignUpForm()
-        ]),
-      ),
+        children: [
+        Image.asset('assets/WN 1.png'),
+        const SignUpForm()
+      ]),
     );
   }
 }
@@ -32,7 +29,7 @@ class SignUpForm extends StatelessWidget {
         child: Material(
       elevation: 20,
       borderRadius: BorderRadius.circular(20),
-      child: Container(
+      child: SizedBox(
         height: 322.h,
         width: 331.w,
         child:
@@ -83,11 +80,12 @@ Container(
   height: 51.h,
   width: 297.w,
   margin: EdgeInsets.only(left: 18.w,top: 30.h),
-  child:   ElevatedButton(onPressed: (){}, child: Text('Sign Up'),
+  child:   ElevatedButton(onPressed: (){}, 
   
   style: ElevatedButton.styleFrom(
-    primary: Color(0xffFE724C)
+    primary: const Color(0xffFE724C)
   ),
+  child: const Text('Sign Up'),
   ),
 )
         ]),
