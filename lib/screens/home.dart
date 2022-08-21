@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:waste_not/screens/filter.dart';
-import 'package:waste_not/screens/food.dart';
 import 'package:waste_not/widgets/meal.dart';
 
 import '../widgets/navigation_bar.dart';
