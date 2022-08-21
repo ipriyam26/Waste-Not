@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/screens/home.dart';
-import 'package:waste_not/screens/profile.dart';
-import 'package:waste_not/screens/signup.dart';
-import 'package:waste_not/screens/splash.dart';
-import 'auth/presentation/login.dart';
+
 import 'package:firebase_core/firebase_core.dart';
+import 'package:waste_not/screens/signup.dart';
 import 'firebase_options.dart';
-import 'auth/presentation/login.dart';
+
 
 
 void main() async {
@@ -34,7 +32,7 @@ class MyApp extends StatelessWidget {
         return  MaterialApp(
           debugShowCheckedModeBanner: false,
 
-          home: Home(),
+          home: SignupScreen(),
         );
       },
     );

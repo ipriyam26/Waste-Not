@@ -164,7 +164,7 @@ class Input extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hint,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12.sp),
+              borderRadius: BorderRadius.circular(8.sp),
               borderSide: BorderSide(
                 width: 2,
                 style: BorderStyle.none,
