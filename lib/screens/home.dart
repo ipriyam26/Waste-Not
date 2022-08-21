@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:waste_not/auth/controllers/food_controller.dart';
 import 'package:waste_not/widgets/meal.dart';
 
 import '../widgets/navigation_bar.dart';
@@ -11,6 +13,11 @@ import '../widgets/sort_popup.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+//put get controller
+  final FoodController controller = Get.put(FoodController());
+
+
+
     return Scaffold(
       bottomNavigationBar: const CustomNavigationBar(),
       appBar: AppBar(
@@ -77,11 +84,16 @@ class Home extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: ListView.builder(
-              itemBuilder: (context, i) {
-                return const Meal();
-              },
-              itemCount: 10,
+            child: GetX<FoodController>(
+              builder: (controller) {
+                return ListView.builder(
+
+                  itemBuilder: (context, i) {
+                    return  Meal(food: controller.foodList[i],);
+                  },
+                  itemCount: controller.foodList.length,
+                );
+              }
             ),
           )
         ],
