@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/screens/home.dart';
 
 import 'package:firebase_core/firebase_core.dart';
-import 'package:waste_not/screens/signup.dart';
+import 'package:waste_not/auth/presentation/signup.dart';
 import 'firebase_options.dart';
 
 
