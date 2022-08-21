@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:waste_not/auth/controllers/food_controller.dart';
 import 'package:waste_not/screens/home.dart';
-
 import 'package:firebase_core/firebase_core.dart';
-import 'package:waste_not/auth/presentation/signup.dart';
 import 'firebase_options.dart';
 
 
@@ -29,10 +29,10 @@ class MyApp extends StatelessWidget {
 
       splitScreenMode: true,
       builder: (context, a) {
-        return  MaterialApp(
+        return   GetMaterialApp(
           debugShowCheckedModeBanner: false,
 
-          home: SignupScreen(),
+          home: Home(),
         );
       },
     );

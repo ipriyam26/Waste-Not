@@ -1,21 +1,23 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/foodWidgets.dart';
 
 class Food extends StatelessWidget {
-  const Food({Key? key}) : super(key: key);
+   const Food({
+    required this.food,
+    Key? key}) : super(key: key);
   // int borderRadius = 12;
-
+final Map<String,dynamic> food;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    String foodName = 'RandomFood Name';
-    String foodDescription = 'RandomFood Description';
-    String foodLocation = 'RandomFood Location';
+    String foodName = food['title'];
+    String foodDescription = food['description'];
+    String foodLocation = (food['postedTime'] as Timestamp).toDate().toString().split(' ').first;
     double foodRating = 4.5;
-    String des =
-        'Best Before 1 day.\nThese chapatis were made on 2-09-2021(yesterday). \nThey are in best condition.';
+    String des = food['description'].toString();
     // make a list of strings
     List<String> addOn = [
       'https://source.unsplash.com/random/300%C3%97300/?milk',
@@ -37,14 +39,16 @@ class Food extends StatelessWidget {
             ImageDisplay(
                 height: height,
                 width: width,
-                link: 'https://source.unsplash.com/random/300%C3%97300/?food'),
+                link: food['imageUrl']),
             NameContainer(
                 width: width,
                 height: height,
                 foodName: foodName,
                 foodDescription: foodDescription,
                 foodLocation: foodLocation,
-                foodRating: foodRating),
+                foodRating: foodRating,
+                foodServes: food['quantity'],
+                ),
             FoodDetails(height: height, des: des),
             AddOn(width: width, height: height,addOn: addOn),
             // make a green button with circular border saying 'Send Request'

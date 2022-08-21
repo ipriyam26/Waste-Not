@@ -217,7 +217,7 @@ class SignupScreen extends StatelessWidget {
                           // if (message != null) {
                           //   Fluttertoast.showToast(msg: message);
                           // }
-                          Get.to(Home());
+                          Get.to(()=>Home());
                          
                         },
                         child: Row(
