@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:waste_not/screens/EditScreen.dart';
-import 'package:waste_not/screens/home.dart';
 
+import 'package:get/get.dart';
+import 'package:waste_not/auth/controllers/food_controller.dart';
+
+import 'package:waste_not/screens/home.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:waste_not/screens/notifications.dart';
-import 'package:waste_not/screens/profile.dart';
-import 'package:waste_not/widgets/Caption_popup.dart';
-import 'auth/presentation/signup.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -30,8 +29,12 @@ class MyApp extends StatelessWidget {
 
       splitScreenMode: true,
       builder: (context, a) {
-        return MaterialApp(
-            debugShowCheckedModeBanner: false, home: ProfileScreen());
+
+        return   GetMaterialApp(
+          debugShowCheckedModeBanner: false,
+
+          home: Home(),
+        );
       },
     );
   }

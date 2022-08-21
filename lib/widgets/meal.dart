@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:waste_not/models/food.dart';
 import 'package:waste_not/screens/food.dart';
 
 class Meal extends StatelessWidget {
-  const Meal({Key? key}) : super(key: key);
-
+  const Meal({
+    Key? key,
+    required this.food,
+  }) : super(key: key);
+  final Map<String,dynamic> food;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(2.0),
       child: InkWell(
         onTap: () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => const Food()));
+          Get.to(Food(food: food));
+
         },
         child: Container(
           decoration: BoxDecoration(
@@ -27,8 +32,8 @@ class Meal extends StatelessWidget {
                 height: 100.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-                  image: const DecorationImage(
-                      image: AssetImage('assets/food1.png'), fit: BoxFit.fill),
+                  image:  DecorationImage(
+                      image: NetworkImage(food['imageUrl']), fit: BoxFit.fill),
                 ),
               ),
               SizedBox(
@@ -41,9 +46,9 @@ class Meal extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Text(
-                        'Palak Paneer',
-                        style: TextStyle(
+                       Text(
+                        food['title'].trim().split(' ').first,
+                        style: const TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -64,7 +69,7 @@ class Meal extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [const Text('Serves 2')],
+                    children: [ Text('Serves ${food['quantity']}')],
                   ),
                   Row(
                     children: [
@@ -74,19 +79,13 @@ class Meal extends StatelessWidget {
                             Icons.location_on_outlined,
                             color: Colors.yellow,
                           )),
-                      const Text('Ji Pemuda'),
+                       Text(food['isActive'] as bool ? 'Active' : 'Inactive'),
                       SizedBox(
                         width: 40.w,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: .0),
                         child: Container(
-                          child: const Center(
-                            child: Text(
-                              'View More',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
                           decoration: BoxDecoration(
                               color: Colors.black,
                               borderRadius: BorderRadius.only(
@@ -94,6 +93,12 @@ class Meal extends StatelessWidget {
                                   bottomRight: Radius.circular(16.sp))),
                           height: 40.h,
                           width: 90.w,
+                          child:  const Center(
+                            child:  Text(
+                              'View More',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                         ),
                       )
                     ],

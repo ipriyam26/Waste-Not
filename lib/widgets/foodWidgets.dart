@@ -152,6 +152,7 @@ class NameContainer extends StatelessWidget {
     required this.foodDescription,
     required this.foodLocation,
     required this.foodRating,
+    required this.foodServes
   }) : super(key: key);
 
   final double width;
@@ -159,6 +160,7 @@ class NameContainer extends StatelessWidget {
   final String foodName;
   final String foodDescription;
   final String foodLocation;
+  final int foodServes;
   final double foodRating;
 
   @override
@@ -177,14 +179,16 @@ class NameContainer extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(foodName,
+                Text(foodName.split(' ').first,
+                
                     style: TextStyle(
+                      
                         fontSize: height * 0.03, fontWeight: FontWeight.bold)),
                 SizedBox(
                   height: height * 0.01,
                 ),
                 Text(
-                  foodDescription,
+                  '$foodServes serves',
                   // make the style grey and slightly smaller
                   style: TextStyle(
                     fontSize: height * 0.02,
