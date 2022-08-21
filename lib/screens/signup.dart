@@ -1,95 +1,110 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../auth/presentation/login.dart';
+
 class SignupScreen extends StatelessWidget {
   const SignupScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      body: Column(
-mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-        Image.asset('assets/WN 1.png'),
-        const SignUpForm()
-      ]),
-    );
-  }
-}
-
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Material(
-      elevation: 20,
-      borderRadius: BorderRadius.circular(20),
-      child: SizedBox(
-        height: 322.h,
-        width: 331.w,
-        child:
-            Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Container(
-            padding: EdgeInsets.only(left: 18.w, top: 24.h, bottom: 12.h),
-            child: Text(
-              "Sign up",
-              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.sp),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 9.h),
-            child: TextField(
-              decoration: InputDecoration(
-                  hintText: 'Enter Email ID',
-                  hintStyle: TextStyle(
-                    fontSize: 14.sp
-                  ),
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8))),
-            ),
-          ), Container(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 3.h),
-            child: Column(
-crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                TextField(
-                  decoration: InputDecoration(
-                      hintText: 'Enter Password',
-                      hintStyle: TextStyle(
-                        fontSize: 14.sp
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/WN 1.png'),
+              Container(
+                width: 331.w,
+                height: 322.h,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    offset: Offset(2, 2),
+                    blurRadius: 12,
+                  )
+                ]),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(12.sp),
+                      child: Text(
+                        'Login With Email',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.sp),
                       ),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(8))),
+                    ),
+                    SizedBox(
+                      height: 15.sp,
+                    ),
+                    Input(
+                      hint: 'Enter email I\'d',
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Input(
+                      hint: 'Enter Password',
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 14.sp),
+                          child: Text(
+                            'Forgot Password?',
+                            style: TextStyle(
+                                color: Colors.blueAccent,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    SizedBox(
+                      height: 18.h,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Center(
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            height: 60.h,
+                            width: 297.w,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFFE724C),
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(12.sp))),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                SizedBox(height: 7.h,),
-          const Text('Forgot Password ?',
-          style: TextStyle(color: Color(0xffFE724C),
-          fontWeight: FontWeight.bold
+              )
+            ],
           ),
-          ),
+        ));
 
-              ],
-            ),
-          ),
-Container(
-  height: 51.h,
-  width: 297.w,
-  margin: EdgeInsets.only(left: 18.w,top: 30.h),
-  child:   ElevatedButton(onPressed: (){}, 
-  
-  style: ElevatedButton.styleFrom(
-    primary: const Color(0xffFE724C)
-  ),
-  child: const Text('Sign Up'),
-  ),
-)
-        ]),
-      ),
-    ));
   }
 }

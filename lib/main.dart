@@ -3,10 +3,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/screens/home.dart';
 import 'package:waste_not/screens/profile.dart';
 import 'package:waste_not/screens/signup.dart';
+import 'package:waste_not/screens/splash.dart';
+import 'auth/presentation/login.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-
 import 'auth/presentation/login.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +17,7 @@ void main() async {
   );
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -30,6 +33,7 @@ class MyApp extends StatelessWidget {
       builder: (context, a) {
         return  MaterialApp(
           debugShowCheckedModeBanner: false,
+
           home: Home(),
         );
       },
