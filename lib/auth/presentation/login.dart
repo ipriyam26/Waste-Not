@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../controller/login_controller.dart';
 
 class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
+  final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -73,20 +77,23 @@ class Login extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12.sp)),
                       color: Colors.white,
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.add),
-                          color: Colors.black,
-                        ),
-                        Text(
-                          'Google',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 14.sp),
-                        )
-                      ],
+                    child: GestureDetector(
+                      onTap: () => controller.signInWithGoogle,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.add),
+                            color: Colors.black,
+                          ),
+                          Text(
+                            'Google',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 14.sp),
+                          )
+                        ],
+                      ),
                     ),
                     height: 42.45.h,
                     width: 132.59.w,
@@ -151,7 +158,6 @@ class Input extends StatelessWidget {
   });
 
   final String hint;
-
 
   @override
   Widget build(BuildContext context) {
