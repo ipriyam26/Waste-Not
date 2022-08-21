@@ -46,6 +46,7 @@ class EditScreen extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 40.sp,
+                    backgroundImage: AssetImage('assets/Oval.png'),
                     backgroundColor: Colors.red,
                   ),
                   SizedBox(
@@ -60,7 +61,7 @@ class EditScreen extends StatelessWidget {
                   ),
                   Divider(color: Colors.black, thickness: 0.2),
                   SizedBox(
-                    height: 20.h,
+                    height: 40.h,
                   ),
                   EditRow(
                     feild: 'Name',

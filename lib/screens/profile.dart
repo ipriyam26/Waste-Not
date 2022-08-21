@@ -1,179 +1,234 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/widgets/navigation_bar.dart';
 
-class ProfileScreen extends StatelessWidget {
+import '../widgets/meal.dart';
+
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen>
+    with TickerProviderStateMixin {
+  @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
-      bottomNavigationBar: CustomNavigationBar(),
-      body: Column(
-        children: [
-          Container(
-            height: 271.h,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                    margin: EdgeInsets.only(top: 72.h, left: 48.w),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              height: 350.h,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 40.w, vertical: 60.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           'My Profile',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16.sp),
+                          style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Row(
                           children: [
                             IconButton(
-                              icon: const Icon(Icons.edit),
                               onPressed: () {},
+                              icon: Icon(
+                                Icons.edit,
+                                color: Colors.black,
+                              ),
                             ),
                             IconButton(
-                                onPressed: () {},
-                                icon: const Icon(Icons.notifications_none)),
+                              onPressed: () {},
+                              icon: Icon(
+                                Icons.notifications,
+                                color: Colors.black,
+                              ),
+                            )
                           ],
                         ),
                       ],
-                    )),
-                middleSection(),
-                Container(
-                  margin: EdgeInsets.only(left: 23.w, top: 13.h),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Text(
-                        'Priyam Srivastava',
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w600,
-                        ),
+                      CircleAvatar(
+                        radius: 40.sp,
+                        backgroundImage: AssetImage('assets/user1.png'),
                       ),
-                      Text(
-                        'JL Pemuda',
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      Row(
+                        children: [
+                          Column(
+                            children: [
+                              Text('2'),
+                              SizedBox(
+                                height: 9.h,
+                              ),
+                              Text(
+                                'Active Post',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            width: 8.w,
+                          ),
+                          Column(
+                            children: [
+                              Text('20'),
+                              SizedBox(
+                                height: 9.h,
+                              ),
+                              Text(
+                                'Donations',
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          )
+                        ],
                       ),
                     ],
                   ),
-                )
-              ],
-            ),
-          ),
-          SecondPart()
-        ],
-      ),
-    );
-  }
-
-  Container middleSection() {
-    return Container(
-        margin: EdgeInsets.only(left: 24.w, top: 25.h, right: 38.w),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ClipOval(
-              child: Image.network(
-                'https://source.unsplash.com/random/300%C3%97300/?person',
-                height: 61.h,
-                width: 62.w,
-                fit: BoxFit.cover,
+                  SizedBox(
+                    height: 12.w,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 40.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Anika Dhawan',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20.sp),
+                        ),
+                        Text('Ji. Pemuda'),
+                      ],
+                    ),
+                  )
+                ],
               ),
+              color: Colors.white,
             ),
-            Row(
-              children: [
-                profileInfo(3, 'Active Donations'),
-                SizedBox(
-                  width: 10.w,
+            TabBar(
+              unselectedLabelColor: Colors.black,
+              labelColor: Colors.red,
+              tabs: [
+                Tab(
+                  icon: Icon(Icons.person),
                 ),
-                profileInfo(20, 'Donations')
+                Tab(
+                  icon: Icon(
+                    Icons.add,
+                  ),
+                ),
               ],
-            )
-          ],
-        ));
-  }
-
-  Column profileInfo(int current, String title) {
-    return Column(
-      children: [
-        Text(
-          current.toString(),
-          style: TextStyle(fontSize: 15.sp),
-        ),
-        Text(
-          title,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.sp),
-        ),
-      ],
-    );
-  }
-}
-
-class SecondPart extends StatefulWidget {
-  SecondPart({
-    Key? key,
-  }) : super(key: key);
-  bool active = true;
-  @override
-  State<SecondPart> createState() => _SecondPartState();
-}
-
-class _SecondPartState extends State<SecondPart> {
-  InkWell titleActive(String title, bool active) {
-    return InkWell(
-      onTap: () {
-        setState(() {
-          widget.active = !widget.active;
-        });
-      },
-      child: Container(
-        margin: EdgeInsets.only(top: 15.h),
-        child: Column(
-          children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 11.sp),
+              controller: _tabController,
+              indicatorSize: TabBarIndicatorSize.tab,
             ),
-            Container(
-              margin: EdgeInsets.only(top: 9.h),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: (active) ? Color(0xffFE724C) : null,
+            Expanded(
+              child: TabBarView(
+                children: [
+                  ListView(
+                    children: [
+                      donation_row(
+                        image: 'assets/food1.png',
+                      ),
+                      donation_row(
+                        image: 'assets/food2.png',
+                      ),
+                      donation_row(
+                        image: 'assets/food3.png',
+                      ),
+                      donation_row(
+                        image: 'assets/food4.png',
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: Text(
+                      'Screen 2',
+                    ),
+                  ),
+                ],
+                controller: _tabController,
               ),
-              width: 119.w,
-              height: 5.h,
             ),
           ],
         ),
       ),
     );
   }
+}
+
+class donation_row extends StatelessWidget {
+  const donation_row({
+    super.key,
+    required this.image,
+  });
+
+  final String image;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.grey[100],
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              titleActive(
-                'Donation',
-                widget.active,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Container(
+        child: Row(
+          children: [
+            Container(
+              height: 100.h,
+              width: 90.h,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(image),
+                ),
+                color: Colors.black,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.sp),
+                    bottomLeft: Radius.circular(12.sp)),
               ),
-              titleActive('Received', !widget.active)
-            ],
-          ),
-
-
-        ],
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    Text('Chapati'),
+                    Row(
+                      children: [
+                        IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.star,
+                              color: Colors.black,
+                            )),
+                        Padding(
+                          padding: EdgeInsets.only(right: 10.sp),
+                          child: Text('2.5'),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(12.sp),
+        ),
+        width: 390.w,
+        height: 100.h,
       ),
     );
   }
