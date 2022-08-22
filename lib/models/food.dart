@@ -1,12 +1,28 @@
 
 
-import 'package:meta/meta.dart';
-import 'dart:convert';
 
-List<FoodModel> foodModelFromJson(String str) => List<FoodModel>.from(json.decode(str).map((x) => FoodModel.fromJson(x)));
+class UserLocal {
+  String userId;
+  int donations;
+  String image;
 
-String foodModelToJson(List<FoodModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+  UserLocal({
+    required this.userId,
+    required this.donations,
+    required this.image,
+  });
+  Map<String, dynamic> toMap() {
+    return {
+      'userId': userId,
+      'donations': donations,
+      'image': image,
+    };
+  }
+}
+
 class FoodModel {
+
+ 
   FoodModel({
     required this.title,
     required this.description,
@@ -14,18 +30,23 @@ class FoodModel {
     required this.latitude,
     required this.longitude,
     required this.quantity,
-    required this.userID,
+    required this.user,
+    required this.location,
     required this.isActive,
+    required this.postedTime,
+    required this.rating
   });
   final String title;
   final String description;
   final int quantity;
   final String imageUrl;
-  final DateTime postedTime = DateTime.now();
+  final int postedTime;
   final double latitude;
   final double longitude;
   final bool isActive;
-  final String userID;
+  final UserLocal user;
+  final double rating ;
+  final String location;
 
   Map<String, dynamic> toMap() {
     return {
@@ -37,30 +58,17 @@ class FoodModel {
       'latitude': latitude,
       'longitude': longitude,
       'isActive': isActive,
-      'userID': userID,
+      'userID': user.toMap(),
+      'rating': rating,
+      'location': location,
+      'isActive': isActive,
+      
     };
   }
-      factory FoodModel.fromJson(Map<String, dynamic> json) => FoodModel(
-        title: json["title"],
-        description: json["description"],
-        imageUrl: json["imageUrl"],
-        latitude: json["latitude"].toDouble(),
-        longitude: json["longitude"].toDouble(),
-        quantity: json["quantity"],
-        userID: json["userID"],
-        isActive: json["isActive"],
-    );
 
-    Map<String, dynamic> toJson() => {
-        "title": title,
-        "description": description,
-        "imageUrl": imageUrl,
-        "latitude": latitude,
-        "longitude": longitude,
-        "quantity": quantity,
-        "userID": userID,
-        "isActive": isActive,
-    };
+ 
+
+ 
 }
 
 

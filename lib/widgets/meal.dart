@@ -9,7 +9,7 @@ class Meal extends StatelessWidget {
     Key? key,
     required this.food,
   }) : super(key: key);
-  final Map<String,dynamic> food;
+  final FoodModel food;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -33,7 +33,7 @@ class Meal extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(12.sp)),
                   image:  DecorationImage(
-                      image: NetworkImage(food['imageUrl']), fit: BoxFit.fill),
+                      image: NetworkImage(food.imageUrl), fit: BoxFit.fill),
                 ),
               ),
               SizedBox(
@@ -47,7 +47,7 @@ class Meal extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                        Text(
-                        food['title'].trim().split(' ').first,
+                        food.title..split(' ').first,
                         style: const TextStyle(
                             color: Colors.black, fontWeight: FontWeight.bold),
                       ),
@@ -69,7 +69,7 @@ class Meal extends StatelessWidget {
                     ],
                   ),
                   Row(
-                    children: [ Text('Serves ${food['quantity']}')],
+                    children: [ Text('Serves ${food.quantity}')],
                   ),
                   Row(
                     children: [
@@ -79,7 +79,7 @@ class Meal extends StatelessWidget {
                             Icons.location_on_outlined,
                             color: Colors.yellow,
                           )),
-                       Text(food['isActive'] as bool ? 'Active' : 'Inactive'),
+                       Text(food.isActive as bool ? 'Active' : 'Inactive'),
                       SizedBox(
                         width: 40.w,
                       ),
