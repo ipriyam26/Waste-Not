@@ -6,34 +6,33 @@ class FoodController extends GetxController {
   List<FoodModel> foodList = <FoodModel>[].obs;
 
   @override
-  void onInit() {
-    CollectionReference foodInst =
-        FirebaseFirestore.instance.collection('food');
-    foodInst.limit(10).get().then((value) {
-      for (var element in value.docs) {
-        Map<String, dynamic> food = element.data() as Map<String, dynamic>;
-       FoodModel newModel =  FoodModel(
+  Future<void> onInit() async {
+     CollectionReference foodInst =
+        FirebaseFirestore.instance.collection('foods');
+    var response =
+        await foodInst.orderBy('postedTime', descending: true).limit(10).get();
+    var foodItems = response.docs;
+    for (var foodItem in foodItems) {
+          var food = foodItem.data()! as Map<String, dynamic>;
+        FoodModel newModel = FoodModel(
             title: food['title'],
             description: food['description'],
-            imageUrl: food['mageUrl'],
+            imageUrl: food['imageUrl'],
             latitude: food['latitude'],
             longitude: food['longitude'],
             quantity: food['quantity'],
             user: UserLocal(
-              userId:food['user']['userId'],
-              donations: food['user']['donations'],
-              image: food['user']['image'],),
+              userId: food['userID']['userId'],
+              donations: food['userID']['donations'],
+              image: food['userID']['image'],
+            ),
             location: food['location'],
             isActive: food['isActive'],
             postedTime: food['postedTime'],
             rating: food['rating']);
         foodList.add(newModel);
-      }
-//remove postedTime from each element in the list
+    }
+       super.onInit();
 
-
-    });
-
-    super.onInit();
   }
 }
