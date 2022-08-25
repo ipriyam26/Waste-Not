@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../controller/login_controller.dart';
 
 class Login extends StatelessWidget {
-  final LoginController controller = Get.put(LoginController());
+  // final LoginController controller = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -84,13 +83,13 @@ class Login extends StatelessWidget {
                       
 
                     child: GestureDetector(
-                      onTap: () => controller.signInWithGoogle,
+                      onTap: () {},
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconButton(
                             onPressed: () {},
-                            icon: Icon(Icons.add),
+                            icon: const Icon(Icons.add),
                             color: Colors.black,
                           ),
                           Text(
