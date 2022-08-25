@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:waste_not/screens/Dashboard/dashboard_controller.dart';
@@ -16,9 +15,9 @@ class DasboardPage extends StatelessWidget {
 
   final screens = [
     Home(),
-    Messages(),
+    const Messages(),
     FilterScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -49,28 +48,30 @@ class DasboardPage extends StatelessWidget {
                   BoxShadow(color: Colors.grey.withOpacity(0.2), blurRadius: 8)
                 ], // tab button shadow
                 curve: Curves.bounceIn, // tab animation curves
-                duration: Duration(milliseconds: 10), // tab animation duration
+                duration: const Duration(milliseconds: 10), // tab animation duration
                 gap: 8, // the tab button gap between icon and text
                 color: Colors.grey[800], // unselected icon color
                 activeColor: Colors.purple, // selected icon and text color
                 iconSize: 24, // tab button icon size
                 tabBackgroundColor: Colors.purple
                     .withOpacity(0.1), // selected tab background color
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     horizontal: 20, vertical: 5), // navigation bar padding
-                tabs: [
+                tabs: const [
                   GButton(
                     icon: LineIcons.home,
                     text: 'Home',
+                  ),
+                   GButton(
+                    icon: LineIcons.filter,
+                    text: 'Filter',
                   ),
                   GButton(
                     icon: LineIcons.facebookMessenger,
                     text: 'Messages',
                   ),
-                  GButton(
-                    icon: LineIcons.filter,
-                    text: 'Filter',
-                  ),
+
+                 
                   GButton(
                     icon: LineIcons.user,
                     text: 'Profile',

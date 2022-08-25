@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Caption extends StatelessWidget {
-  const Caption({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -130,29 +129,35 @@ class Caption extends StatelessWidget {
                           width: 30.w,
                           height: 30.w,
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            border: Border.all(color: Colors.grey),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.sp)),
                           ),
-                          child: IconButton(
-                            icon: const Center(child: Icon(Icons.add)),
-                            onPressed: () {},
+                          child: Icon(Icons.remove,
+                          color: Colors.amber[800],
                           ),
                         ),
-                        SizedBox(
-                          width: 10.w,
+
+                      Container(
+                        margin: EdgeInsets.symmetric(horizontal: 10.w),
+                        child:  Text('1',
+                        style: TextStyle(
+                         fontSize: 20.sp 
                         ),
+                        ),
+                      ),
+                        
                         Container(
+                          
                           width: 30.w,
                           height: 30.w,
                           decoration: BoxDecoration(
-                            color: Colors.red,
+                            border: Border.all(color: Colors.grey),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.sp)),
                           ),
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.add),
+                          child: Icon(Icons.add,
+                          color: Colors.amber[800],
                           ),
                         )
                       ],
