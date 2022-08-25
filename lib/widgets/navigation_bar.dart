@@ -1,6 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:waste_not/screens/filter.dart';
 
 class CustomNavigationBar extends StatelessWidget {
   const CustomNavigationBar({Key? key}) : super(key: key);
@@ -13,7 +12,7 @@ class CustomNavigationBar extends StatelessWidget {
       height: 55,
       buttonBackgroundColor: const Color(0xFFF49517),
       backgroundColor: Colors.transparent,
-      items:  <Widget>[
+      items:  const <Widget>[
          Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(

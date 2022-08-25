@@ -7,7 +7,6 @@ import 'package:waste_not/widgets/meal.dart';
 
 import '../widgets/navigation_bar.dart';
 import '../widgets/search_container.dart';
-import '../widgets/search_popup.dart';
 import '../widgets/sort_popup.dart';
 
 class Home extends StatelessWidget {
@@ -55,7 +54,7 @@ class Home extends StatelessWidget {
         actions: [
           Padding(
             padding:  EdgeInsets.only(right: 8.w),
-            child:Image.asset('assets/icons/bell.png', width: 14.w, height: 16.72.h,),
+            child:Image.asset('assets/bell.png', width: 14.w, height: 16.72.h,),
           )
         ],
       ),

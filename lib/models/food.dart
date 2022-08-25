@@ -57,7 +57,6 @@ class FoodModel {
       'postedTime': postedTime,
       'latitude': latitude,
       'longitude': longitude,
-      'isActive': isActive,
       'userID': user.toMap(),
       'rating': rating,
       'location': location,

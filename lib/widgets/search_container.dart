@@ -28,7 +28,7 @@ boxShadow: [BoxShadow(
   // color: Color(0xfff2f2f7)
   color: const Color.fromRGBO(0, 0, 0, 0.2),
 )],
-          border: Border.all(color: Color(0xFFBDBDBD)),
+          border: Border.all(color: const Color(0xFFBDBDBD)),
           borderRadius: BorderRadius.circular(12.sp),
           color: Colors.white),
       child: Padding(

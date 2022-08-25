@@ -9,10 +9,10 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomNavigationBar(),
+      bottomNavigationBar: const CustomNavigationBar(),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height: 271.h,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -144,7 +144,7 @@ class _SecondPartState extends State<SecondPart> {
               margin: EdgeInsets.only(top: 9.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: (active) ? Color(0xffFE724C) : null,
+                color: (active) ? const Color(0xffFE724C) : null,
               ),
               width: 119.w,
               height: 5.h,

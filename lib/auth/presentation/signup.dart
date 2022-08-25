@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/signup_controller.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:waste_not/screens/home.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -13,6 +11,8 @@ class SignupScreen extends StatelessWidget {
   String userName = '';
   String email = '';
   String password = '';
+
+  SignupScreen({Key? key}) : super(key: key);
   // TextEditingController passwordController = TextEditingController();
 
   // TextEditingController usernameController = TextEditingController();

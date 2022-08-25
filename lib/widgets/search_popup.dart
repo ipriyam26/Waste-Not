@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -12,30 +11,34 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
   Widget build(BuildContext context) {
     return Dialog(
         elevation: 0,
-        backgroundColor: Color(0xffffffff),
+        backgroundColor: const Color(0xffffffff),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: Container(
+          height: 321.h,
+          width: 290.w,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(12.sp))),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Items(
+              const Items(
                 itemName: 'Palak Paneer',
               ),
-              Items(
+              const Items(
                 itemName: 'Chapati',
               ),
-              Items(
+              const Items(
                 itemName: 'Sabu Dal',
               ),
-              Items(
+              const Items(
                 itemName: 'Soya Milk',
               ),
-              Items(
+              const Items(
                 itemName: 'Chicken Curry',
               ),
-              Items(
+              const Items(
                 itemName: 'Dum Biryani',
               ),
               SizedBox(
@@ -43,20 +46,16 @@ class _CustomAlertDialogState extends State<CustomAlertDialog> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                child: Center(child: Text('Clear recent searches')),
+                child: const Center(child: Text('Clear recent searches')),
               )
             ],
           ),
-          height: 321.h,
-          width: 290.w,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(12.sp))),
         ));
   }
 }
 
 class Items extends StatelessWidget {
-  Items({required this.itemName});
+  const Items({required this.itemName});
 
   final String itemName;
 
@@ -69,11 +68,11 @@ class Items extends StatelessWidget {
         children: [
           Text(
             itemName,
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.cancel,
                 color: Colors.black,
               ))
