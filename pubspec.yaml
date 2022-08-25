@@ -43,10 +43,12 @@ dependencies:
   flutter_animated_dialog: ^2.0.1
   syncfusion_flutter_sliders:
   firebase_core: ^1.21.0
+  google_sign_in:
   firebase_auth: ^3.6.4
   form_validator: ^1.0.2
   fluttertoast: ^8.0.9
   cloud_firestore: ^3.4.5
+
 
 
 dev_dependencies:
