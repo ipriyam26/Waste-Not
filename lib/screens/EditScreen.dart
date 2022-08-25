@@ -7,17 +7,17 @@ class EditScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAFAFA),
+      backgroundColor: const Color(0xFFFAFAFA),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Text(
+        leading: const Text(
           'Cancel',
           style: TextStyle(
             color: Colors.black,
           ),
         ),
-        title: Text(
+        title: const Text(
           'Edit Profile',
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -25,7 +25,7 @@ class EditScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(top: 16.sp, right: 5.sp),
-            child: Text(
+            child: const Text(
               'Done',
               style: TextStyle(color: Colors.orange),
             ),
@@ -38,6 +38,7 @@ class EditScreen extends StatelessWidget {
           Expanded(
             child: Container(
               width: 400.sp,
+              color: Colors.white,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -46,20 +47,20 @@ class EditScreen extends StatelessWidget {
                   ),
                   CircleAvatar(
                     radius: 40.sp,
-                    backgroundImage: AssetImage('assets/Oval.png'),
+                    backgroundImage: const AssetImage('assets/Oval.png'),
                     backgroundColor: Colors.red,
                   ),
                   SizedBox(
                     height: 15.h,
                   ),
-                  Text(
+                  const Text(
                     'Change Profile Photo',
                     style: TextStyle(color: Colors.red),
                   ),
                   SizedBox(
                     height: 10.h,
                   ),
-                  Divider(color: Colors.black, thickness: 0.2),
+                  const Divider(color: Colors.black, thickness: 0.2),
                   SizedBox(
                     height: 40.h,
                   ),
@@ -67,7 +68,7 @@ class EditScreen extends StatelessWidget {
                     feild: 'Name',
                     info: 'Rubi Devi',
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
@@ -79,7 +80,7 @@ class EditScreen extends StatelessWidget {
                     feild: 'Username',
                     info: 'rubi devi',
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
@@ -91,7 +92,7 @@ class EditScreen extends StatelessWidget {
                     feild: 'Location',
                     info: 'Location',
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
@@ -108,7 +109,7 @@ class EditScreen extends StatelessWidget {
                     height: 40.h,
                   ),
                   EditRow(feild: 'Email', info: 'rubi.devi@gmail.com'),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
@@ -117,7 +118,7 @@ class EditScreen extends StatelessWidget {
                     height: 40.h,
                   ),
                   EditRow(feild: 'Phone', info: '+91 704 555 0147'),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
@@ -126,14 +127,13 @@ class EditScreen extends StatelessWidget {
                     height: 40.h,
                   ),
                   EditRow(feild: 'Gender', info: 'Female'),
-                  Divider(
+                  const Divider(
                     color: Colors.black,
                     thickness: 0.2,
                     indent: 180,
                   ),
                 ],
               ),
-              color: Colors.white,
             ),
           )
         ],

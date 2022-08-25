@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:waste_not/screens/EditScreen.dart';
 
 class Caption extends StatelessWidget {
   const Caption({Key? key}) : super(key: key);
@@ -15,13 +14,26 @@ class Caption extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(12.w),
               child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(2, 2),
+                      blurRadius: 12,
+                      color: Color.fromRGBO(0, 0, 0, 0.16),
+                    )
+                  ],
+                  borderRadius: BorderRadius.all(Radius.circular(12.sp)),
+                  color: Colors.white,
+                ),
+                height: 360.h,
+                width: 422.w,
                 child: Column(
                   children: [
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.sp),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
+                        children: const [
                           Text('Cancel'),
                           Text(
                             'Share',
@@ -38,7 +50,7 @@ class Caption extends StatelessWidget {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 62.w,
                             height: 61.h,
                             child: Image.asset('assets/image 11.png'),
@@ -46,14 +58,14 @@ class Caption extends StatelessWidget {
                           SizedBox(
                             width: 10.w,
                           ),
-                          Text('Best Before .......'),
+                          const Text('Best Before .......'),
                         ],
                       ),
                     ),
                     SizedBox(
                       height: 12.h,
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 0.2,
                       indent: 12,
                       endIndent: 12,
@@ -64,14 +76,14 @@ class Caption extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
                       child: Row(
                         children: [
-                          Text('Caption....'),
+                          const Text('Caption....'),
                           SizedBox(
                             width: 40.w,
                           ),
                         ],
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 0.2,
                       indent: 12,
                       endIndent: 12,
@@ -82,12 +94,12 @@ class Caption extends StatelessWidget {
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
                       child: Row(
                         children: [
-                          Text('Add Location'),
+                          const Text('Add Location'),
                           SizedBox(
                             width: 40.w,
                           ),
                           Row(
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.location_on_outlined,
                                 color: Colors.black,
@@ -98,7 +110,7 @@ class Caption extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 0.2,
                       indent: 12,
                       endIndent: 12,
@@ -106,41 +118,41 @@ class Caption extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.location_on_outlined,
                           color: Colors.black,
                         ),
-                        Text('Serves'),
+                        const Text('Serves'),
                         SizedBox(
                           width: 65.w,
                         ),
                         Container(
-                          child: IconButton(
-                            icon: Center(child: Icon(Icons.add)),
-                            onPressed: () {},
-                          ),
                           width: 30.w,
                           height: 30.w,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.sp)),
+                          ),
+                          child: IconButton(
+                            icon: const Center(child: Icon(Icons.add)),
+                            onPressed: () {},
                           ),
                         ),
                         SizedBox(
                           width: 10.w,
                         ),
                         Container(
-                          child: IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.add),
-                          ),
                           width: 30.w,
                           height: 30.w,
                           decoration: BoxDecoration(
                             color: Colors.red,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.sp)),
+                          ),
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.add),
                           ),
                         )
                       ],
@@ -149,36 +161,23 @@ class Caption extends StatelessWidget {
                       height: 20.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: Row(
                         children: [
-                          Text('Add Rating'),
+                          const Text('Add Rating'),
                           SizedBox(
                             width: 10.w,
                           ),
-                          Icon(Icons.star),
-                          Icon(Icons.star),
-                          Icon(Icons.star),
-                          Icon(Icons.star),
-                          Icon(Icons.star),
+                          const Icon(Icons.star),
+                          const Icon(Icons.star),
+                          const Icon(Icons.star),
+                          const Icon(Icons.star),
+                          const Icon(Icons.star),
                         ],
                       ),
                     )
                   ],
                 ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      offset: Offset(2, 2),
-                      blurRadius: 12,
-                      color: Color.fromRGBO(0, 0, 0, 0.16),
-                    )
-                  ],
-                  borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-                  color: Colors.white,
-                ),
-                height: 360.h,
-                width: 422.w,
               ),
             )
           ],

@@ -14,11 +14,11 @@
 //           await googleSignIn.signIn();
 
 //       if (googleSignInAccount != null) {
-//         final GoogleSignInAuthentication? googleAuth =
+//         final GoogleSignInAuthentication googleAuth =
 //             await googleSignInAccount.authentication;
 //         final credentials = GoogleAuthProvider.credential(
-//           accessToken: googleAuth?.accessToken,
-//           idToken: googleAuth?.idToken,
+//           accessToken: googleAuth.accessToken,
+//           idToken: googleAuth.idToken,
 //         );
 //       }
 //     } on FirebaseAuthException catch (e) {

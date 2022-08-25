@@ -191,6 +191,7 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.5"
+
   google_nav_bar:
     dependency: "direct main"
     description:
@@ -303,13 +304,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.2"
-  quiver:
-    dependency: transitive
-    description:
-      name: quiver
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.1.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -387,4 +381,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.17.6 <3.0.0"
-  flutter: ">=2.8.0"
+  flutter: ">=1.12.13+hotfix.5"
