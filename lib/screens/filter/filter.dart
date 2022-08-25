@@ -60,103 +60,100 @@ class FilterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        bottomNavigationBar: const CustomNavigationBar(),
         body: Container(
-          margin: EdgeInsets.only(
-            left: 25.w,
-            top: 52.h,
+      margin: EdgeInsets.only(
+        left: 25.w,
+        top: 52.h,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          topStatic(),
+          Wrap(spacing: 27.49.w, runSpacing: 16.72.h, children: [
+            for (var i = 0; i < locations.length; i++)
+              SelectLocationTab(location: locations[i]),
+          ]),
+          Container(
+            margin: EdgeInsets.only(top: 16.05.h),
+            child: Divider(
+              color: Colors.grey[300],
+              thickness: 1.w,
+              indent: 15.w,
+              endIndent: 40.w,
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              topStatic(),
-              Wrap(spacing: 27.49.w, runSpacing: 16.72.h, children: [
-                for (var i = 0; i < locations.length; i++)
-                  SelectLocationTab(location: locations[i]),
-              ]),
-              Container(
-                margin: EdgeInsets.only(top: 16.05.h),
-                child: Divider(
-                  color: Colors.grey[300],
-                  thickness: 1.w,
-                  indent: 15.w,
-                  endIndent: 40.w,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(vertical: 12.05.h),
-                child: Text('Food Type',
-                    style: TextStyle(fontSize: 12.h, color: Colors.grey[600])),
-              ),
-              SizedBox(
-                width: 325.w,
-                height: 360.h,
-                child: GridView(
-                  physics: const ScrollPhysics(
-                    parent: BouncingScrollPhysics(),
-                  ),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    childAspectRatio: 0.88,
-                    mainAxisSpacing: 15.h,
-                    crossAxisSpacing: 12.h,
-                  ),
-                  children: [
-                    for (var i = 0; i < categories.length; i++)
-                      FoodTypeItem(category: categories[i]),
-                  ],
-                ),
-              ),
-              endButton()
-            ],
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 12.05.h),
+            child: Text('Food Type',
+                style: TextStyle(fontSize: 12.h, color: Colors.grey[600])),
           ),
-        ));
+          SizedBox(
+            width: 325.w,
+            height: 360.h,
+            child: GridView(
+              physics: const ScrollPhysics(
+                parent: BouncingScrollPhysics(),
+              ),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                childAspectRatio: 0.88,
+                mainAxisSpacing: 15.h,
+                crossAxisSpacing: 12.h,
+              ),
+              children: [
+                for (var i = 0; i < categories.length; i++)
+                  FoodTypeItem(category: categories[i]),
+              ],
+            ),
+          ),
+          endButton()
+        ],
+      ),
+    ));
   }
 
   Container endButton() {
     return Container(
-              margin: EdgeInsets.only(top: 15.05.h),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                      height: 50.48.h,
-                      width: 120.w,
-                      child: OutlinedButton(
-                        onPressed: () {},
-                        // make button white
-                        style: OutlinedButton.styleFrom(
-                            primary: Colors.white,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.w),
-                            )),
-                        child: Text('Cancel',
-                            style: TextStyle(
-                                fontSize: 11.h, color: Colors.orange)),
-                      )),
-                  SizedBox(
-                    width: 12.2.w,
-                  ),
-                  SizedBox(
-                      height: 50.48.h,
-                      width: 151.w,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.orange,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(4.w),
-                            )),
-                        child: Text(
-                          'Show Results (200)',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 11.h, color: Colors.white),
-                        ),
-                      )),
-                ],
-              ),
-            );
+      margin: EdgeInsets.only(top: 15.05.h),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+              height: 50.48.h,
+              width: 120.w,
+              child: OutlinedButton(
+                onPressed: () {},
+                // make button white
+                style: OutlinedButton.styleFrom(
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.w),
+                    )),
+                child: Text('Cancel',
+                    style: TextStyle(fontSize: 11.h, color: Colors.orange)),
+              )),
+          SizedBox(
+            width: 12.2.w,
+          ),
+          SizedBox(
+              height: 50.48.h,
+              width: 151.w,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                    primary: Colors.orange,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(4.w),
+                    )),
+                child: Text(
+                  'Show Results (200)',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 11.h, color: Colors.white),
+                ),
+              )),
+        ],
+      ),
+    );
   }
 
   Column topStatic() {

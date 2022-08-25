@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:waste_not/screens/home.dart';
+import 'package:get/get.dart';
+
+import 'Dashboard/dashboard_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -14,10 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-        const Duration(seconds: 3),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) =>  Home())));
+    Timer(const Duration(seconds: 3), () => Get.to(() => DasboardPage()));
   }
 
   @override

@@ -35,7 +35,7 @@ packages:
       name: clock
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   cloud_firestore:
     dependency: "direct main"
     description:
@@ -64,20 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
-  contained_tab_bar_view:
-    dependency: "direct main"
-    description:
-      name: contained_tab_bar_view
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.8.0"
-  container_tab_indicator:
-    dependency: transitive
-    description:
-      name: container_tab_indicator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -198,6 +184,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.5"
+  google_nav_bar:
+    dependency: "direct main"
+    description:
+      name: google_nav_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.6"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -254,6 +247,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.4"
+  line_icons:
+    dependency: "direct main"
+    description:
+      name: line_icons
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   lints:
     dependency: transitive
     description:
