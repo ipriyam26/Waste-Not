@@ -33,13 +33,13 @@ class Login extends StatelessWidget {
               SizedBox(
                 height: 15.sp,
               ),
-              Input(
+              const Input(
                 hint: 'Enter email I\'d',
               ),
               SizedBox(
                 height: 20.h,
               ),
-              Input(
+              const Input(
                 hint: 'Enter Password',
               ),
               SizedBox(
@@ -50,7 +50,7 @@ class Login extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 14.sp),
-                    child: Text(
+                    child: const Text(
                       'Forgot Password?',
                       style: TextStyle(
                           color: Colors.blueAccent,
@@ -67,7 +67,7 @@ class Login extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           offset: Offset(2, 2),
                           blurRadius: 12,
@@ -77,6 +77,12 @@ class Login extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(12.sp)),
                       color: Colors.white,
                     ),
+
+                    height: 42.45.h,
+                    width: 132.59.w,
+                 
+                      
+
                     child: GestureDetector(
                       onTap: () => controller.signInWithGoogle,
                       child: Row(
@@ -94,10 +100,10 @@ class Login extends StatelessWidget {
                           )
                         ],
                       ),
+
                     ),
-                    height: 42.45.h,
-                    width: 132.59.w,
                   )
+                  
                 ],
               ),
               SizedBox(
@@ -111,6 +117,12 @@ class Login extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
+                      height: 60.h,
+                      width: 297.w,
+                      decoration: BoxDecoration(
+                          color: const Color(0xFFFE724C),
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(12.sp))),
                       child: Center(
                         child: Text(
                           'Login',
@@ -120,12 +132,6 @@ class Login extends StatelessWidget {
                               color: Colors.white),
                         ),
                       ),
-                      height: 60.h,
-                      width: 297.w,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFFE724C),
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(12.sp))),
                     ),
                   ],
                 ),
@@ -135,7 +141,7 @@ class Login extends StatelessWidget {
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text('Don\'t have an account ?'),
                   Text(
                     ' Create Account',
@@ -164,7 +170,7 @@ class Input extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.sp),
       child: Container(
-        decoration: BoxDecoration(),
+        decoration: const BoxDecoration(),
         child: TextField(
           textAlign: TextAlign.left,
           keyboardType: TextInputType.text,
@@ -172,7 +178,7 @@ class Input extends StatelessWidget {
             hintText: hint,
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.sp),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 width: 2,
                 style: BorderStyle.none,
               ),

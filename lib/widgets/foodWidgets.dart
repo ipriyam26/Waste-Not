@@ -223,7 +223,7 @@ class NameContainer extends StatelessWidget {
                       width: width * 0.01,
                     ),
                     Text(
-                      foodRating.toString(),
+foodRating.ceil().toString(),
                       //make it bold
 
                       style:  TextStyle(

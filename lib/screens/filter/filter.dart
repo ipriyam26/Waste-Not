@@ -235,7 +235,7 @@ class SelectLocationTab extends StatefulWidget {
   final String location;
   Color _color = const Color(0xffF5F5F5);
   IconData _icon = Icons.add;
-  Color _button_text_color = const Color(0xff6B6D81);
+  var _button_text_color = const Color(0xff6B6D81);
   bool checked = false;
 
   @override
@@ -249,7 +249,7 @@ class _SelectLocationTabState extends State<SelectLocationTab> {
       onTap: () {
         setState(() {
           if (!widget.checked) {
-            widget._color = Color(0xffFE724C);
+            widget._color = const Color(0xffFE724C);
             widget._icon = Icons.close;
             widget._button_text_color = const Color(0xffFFFFFF);
             widget.checked = true;

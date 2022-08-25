@@ -18,13 +18,16 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   GlobalKey _NavKey = GlobalKey();
 
+
   @override
   Widget build(BuildContext context) {
 //put get controller
     final FoodController controller = Get.put(FoodController());
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Container(
@@ -36,23 +39,28 @@ class _HomeState extends State<Home> {
           ),
         ),
         title: Row(
-          // ignore: prefer_const_literals_to_create_immutables
+        
           children: [
-            const Icon(
+             Icon(
               Icons.location_on_outlined,
               color: Colors.black,
+              size: 14.sp,
             ),
-            const Text(
+             Text(
               'Dhaka , Banassre',
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(
+                color: const Color(0xff393636,
+              ),
+              fontSize: 14.sp
+              ),
             ),
           ],
         ),
         // ignore: prefer_const_literals_to_create_immutables
         actions: [
-          const Icon(
-            Icons.notifications_none_outlined,
-            color: Colors.black,
+          Padding(
+            padding:  EdgeInsets.only(right: 8.w),
+            child:Image.asset('assets/bell.png', width: 14.w, height: 16.72.h,),
           )
         ],
       ),
@@ -77,12 +85,13 @@ class _HomeState extends State<Home> {
                           context: context,
                           barrierDismissible: true,
                           builder: (BuildContext context) {
-                            return SortPopup();
+                            return const SortPopup();
                           },
                           animationType: DialogTransitionType.fadeScale,
                         );
                       },
-                      child: Icon(Icons.filter_list)))
+                      child: const Icon(Icons.filter_list)))
+
             ],
           ),
           Expanded(

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -10,18 +9,23 @@ class SortPopup extends StatefulWidget {
   State<SortPopup> createState() => _SortPopupState();
 }
 
-SfRangeValues _values = SfRangeValues(3.0, 7.0);
+SfRangeValues _values = const SfRangeValues(3.0, 7.0);
 
 class _SortPopupState extends State<SortPopup> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
       elevation: 0,
-      backgroundColor: Color(0xffffffff),
+      backgroundColor: const Color(0xffffffff),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(15.0),
       ),
       child: Container(
+        width: 360.w,
+        height: 448.h,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(12.sp)),
+            color: Colors.white),
         child: Column(
           children: [
             Row(
@@ -34,22 +38,22 @@ class _SortPopupState extends State<SortPopup> {
                         color: Colors.black)),
                 IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.filter_list,
                       color: Colors.black,
                     ))
               ],
             ),
-            Divider(
+            const Divider(
               indent: 70,
               thickness: 1.2,
               endIndent: 70,
             ),
-            Tile(
+            const Tile(
               name: 'Most Liked',
             ),
-            Tile(name: 'Closest items'),
-            Tile(name: 'Fresh items'),
+            const Tile(name: 'Closest items'),
+            const Tile(name: 'Fresh items'),
             Padding(
               padding: EdgeInsets.all(18.sp),
               child: Column(
@@ -64,7 +68,7 @@ class _SortPopupState extends State<SortPopup> {
                   ),
                   Container(
                     child: SfRangeSlider(
-                      inactiveColor: Color(0xFFE2E2E2),
+                      inactiveColor: const Color(0xFFE2E2E2),
                       activeColor: Colors.black,
                       min: 2.0,
                       max: 10.0,
@@ -89,18 +93,13 @@ class _SortPopupState extends State<SortPopup> {
             )
           ],
         ),
-        width: 360.w,
-        height: 448.h,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-            color: Colors.white),
       ),
     );
   }
 }
 
 class Tile extends StatelessWidget {
-  Tile({required this.name});
+  const Tile({required this.name});
 
   final String name;
   @override
@@ -109,7 +108,7 @@ class Tile extends StatelessWidget {
       padding: EdgeInsets.all(8.sp),
       child: Container(
         decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 offset: Offset(2, 2),
                 blurRadius: 12,

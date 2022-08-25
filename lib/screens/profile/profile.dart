@@ -15,6 +15,7 @@ class _ProfileScreenState extends State<ProfileScreen>
   Widget build(BuildContext context) {
     TabController _tabController = TabController(length: 2, vsync: this);
     return Scaffold(
+
       body: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -132,6 +133,7 @@ class _ProfileScreenState extends State<ProfileScreen>
               controller: _tabController,
               indicatorSize: TabBarIndicatorSize.tab,
             ),
+
             Expanded(
               child: TabBarView(
                 children: [

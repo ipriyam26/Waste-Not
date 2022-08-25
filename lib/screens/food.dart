@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:waste_not/models/food.dart';
 
 import '../widgets/foodWidgets.dart';
 
@@ -8,16 +8,16 @@ class Food extends StatelessWidget {
     required this.food,
     Key? key}) : super(key: key);
   // int borderRadius = 12;
-final Map<String,dynamic> food;
+final FoodModel food;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    String foodName = food['title'];
-    String foodDescription = food['description'];
-    String foodLocation = (food['postedTime'] as Timestamp).toDate().toString().split(' ').first;
-    double foodRating = 4.5;
-    String des = food['description'].toString();
+    String foodName = food.title;
+    String foodDescription = food.description;
+    String foodLocation = food.location;
+    double foodRating = food.rating;
+    String des = food.description;
     // make a list of strings
     List<String> addOn = [
       'https://source.unsplash.com/random/300%C3%97300/?milk',
@@ -39,7 +39,7 @@ final Map<String,dynamic> food;
             ImageDisplay(
                 height: height,
                 width: width,
-                link: food['imageUrl']),
+                link: food.imageUrl),
             NameContainer(
                 width: width,
                 height: height,
@@ -47,7 +47,7 @@ final Map<String,dynamic> food;
                 foodDescription: foodDescription,
                 foodLocation: foodLocation,
                 foodRating: foodRating,
-                foodServes: food['quantity'],
+                foodServes: food.quantity,
                 ),
             FoodDetails(height: height, des: des),
             AddOn(width: width, height: height,addOn: addOn),

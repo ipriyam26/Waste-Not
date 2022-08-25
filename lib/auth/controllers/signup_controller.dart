@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/models/user.dart';
 
@@ -18,11 +17,8 @@ class SignupController extends GetxController {
           backgroundColor: Colors.red,
           colorText: Colors.white);
     });
-    if (newUser != null) {
-      addUserDetails(username);
-      return newUser.user!.uid;
-    }
-    return null;
+    addUserDetails(username);
+    return newUser.user!.uid;
   }
 
   addUserDetails(String username) {

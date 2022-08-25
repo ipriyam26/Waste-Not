@@ -38,7 +38,7 @@ class Messages extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
-              children: [
+              children: const [
                 MessageTile(
                   username: 'Danny Hopkins',
                   message: 'dannylove@gmail.com',
@@ -123,7 +123,7 @@ class MessageTile extends StatelessWidget {
                   children: [
                     Text(
                       username,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                       overflow: TextOverflow.ellipsis,
                     ),

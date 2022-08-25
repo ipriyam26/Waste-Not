@@ -9,105 +9,136 @@ class Meal extends StatelessWidget {
     Key? key,
     required this.food,
   }) : super(key: key);
-  final Map<String,dynamic> food;
+  final FoodModel food;
   @override
   Widget build(BuildContext context) {
+    String fixString(String input,int words) {
+      List<String> split = input.split(' ');
+      if(split.length > words) {
+        return '${split.sublist(0, words).join(' ')}...';
+      }
+      return input;
+    
+    }
+
+    final title = food.title.replaceAll('-', '').split(' ').length > 3
+        ? '${food.title.split(' ')[0]} ${food.title.split(' ')[1]}${food.title.split(' ')[2]}'
+        : food.title;
+
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
       child: InkWell(
         onTap: () {
           Get.to(Food(food: food));
-
         },
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.grey,
+              color: const Color(0xffF6f6f6),
               borderRadius: BorderRadius.all(Radius.circular(12.sp))),
           height: 110.w,
           width: 200.w,
           child: Row(
             children: [
-              Container(
-                width: 100.w,
-                height: 100.h,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-                  image:  DecorationImage(
-                      image: NetworkImage(food['imageUrl']), fit: BoxFit.fill),
-                ),
-              ),
-              SizedBox(
-                width: 15.w,
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
+              imageHandler(),
+              Expanded(
+                child: Container(
+                  padding: EdgeInsets.only(top: 15.h, left: 19.72.w),
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                       Text(
-                        food['title'].trim().split(' ').first,
-                        style: const TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(
-                        width: 90.w,
-                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.star,
+                          Text(
+                            fixString(food.title,3),
+                            style: TextStyle(
+                                fontSize: 16.sp,
                                 color: Colors.black,
-                                size: 15.sp,
-                              )),
-                          const Text('2.5')
-                        ],
-                      )
-                    ],
-                  ),
-                  Row(
-                    children: [ Text('Serves ${food['quantity']}')],
-                  ),
-                  Row(
-                    children: [
-                      IconButton(
-                          onPressed: () {},
-                          icon: const Icon(
-                            Icons.location_on_outlined,
-                            color: Colors.yellow,
-                          )),
-                       Text(food['isActive'] as bool ? 'Active' : 'Inactive'),
-                      SizedBox(
-                        width: 40.w,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: .0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Colors.black,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(16.sp),
-                                  bottomRight: Radius.circular(16.sp))),
-                          height: 40.h,
-                          width: 90.w,
-                          child:  const Center(
-                            child:  Text(
-                              'View More',
-                              style: TextStyle(color: Colors.white),
-                            ),
+                                fontWeight: FontWeight.bold),
                           ),
-                        ),
-                      )
+                          // SizedBox(
+                          //   width: 90.w,
+                          // ),
+
+                          Padding(
+                            padding: EdgeInsets.only(right: 17.w),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.star_border_outlined,
+                                  color: Colors.black,
+                                  size: 15.w,
+                                ),
+                                Text(food.rating.ceil().toString(),),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      Text('Serves ${food.quantity}'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: const Color(0xffFE724C),
+                                size: 15.w,
+                              ),
+                              SizedBox(
+                                width: 7.2.w,
+                              ),
+                              Text(
+                                fixString(food.location,2),
+                                style: TextStyle(
+                                  fontSize: 12.sp,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(vertical: .0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.black,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.sp),
+                                      bottomRight: Radius.circular(16.sp))),
+                              height: 40.h,
+                              width: 90.w,
+                              child: const Center(
+                                child: Text(
+                                  'View More',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ],
                   ),
-                ],
+                ),
               )
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Container imageHandler() {
+    return Container(
+      width: 100.w,
+      height: 100.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(12.sp)),
+        image: DecorationImage(
+            image: NetworkImage(food.imageUrl), fit: BoxFit.fill),
       ),
     );
   }
