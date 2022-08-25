@@ -64,12 +64,12 @@ class DasboardPage extends StatelessWidget {
                     text: 'Home',
                   ),
                   GButton(
-                    icon: LineIcons.filter,
-                    text: 'Filter',
+                    icon: LineIcons.facebookMessenger,
+                    text: 'Messages',
                   ),
                   GButton(
                     icon: LineIcons.filter,
-                    text: 'Messages',
+                    text: 'Filter',
                   ),
                   GButton(
                     icon: LineIcons.user,
