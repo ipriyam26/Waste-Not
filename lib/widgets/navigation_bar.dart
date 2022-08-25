@@ -12,6 +12,7 @@ class CustomNavigationBar extends StatelessWidget {
       height: 55,
       buttonBackgroundColor: const Color(0xFFF49517),
       backgroundColor: Colors.transparent,
+
       items:  const <Widget>[
          Padding(
           padding: EdgeInsets.all(8.0),
@@ -21,15 +22,15 @@ class CustomNavigationBar extends StatelessWidget {
             color: Color(0xFF00144F),
           ),
         ),
-   Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.filter_alt_outlined,
-              size: 30,
-              color: Color(0xFF00144F),
-            ),
+        Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Icon(
+            Icons.filter_alt_outlined,
+            size: 30,
+            color: Color(0xFF00144F),
           ),
-         Padding(
+        ),
+        Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
             Icons.add,
@@ -37,8 +38,7 @@ class CustomNavigationBar extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-         InkWell(
-         
+        InkWell(
           child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Icon(
@@ -48,7 +48,7 @@ class CustomNavigationBar extends StatelessWidget {
             ),
           ),
         ),
-         Padding(
+        Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
             Icons.account_circle_outlined,
@@ -59,7 +59,6 @@ class CustomNavigationBar extends StatelessWidget {
       ],
       onTap: (index) {
         //Handle button tap
-        
       },
     );
   }
