@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 
-import 'package:waste_not/screens/home.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:waste_not/screens/Dashboard/dashboard_page.dart';
+import 'package:waste_not/screens/splash.dart';
 
 import 'firebase_options.dart';
 
@@ -28,11 +29,9 @@ class MyApp extends StatelessWidget {
 
       splitScreenMode: true,
       builder: (context, a) {
-
-        return   GetMaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
-
-          home: Home(),
+          home: SplashScreen(),
         );
       },
     );

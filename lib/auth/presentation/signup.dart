@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/signup_controller.dart';
-import 'package:waste_not/screens/home.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:waste_not/screens/home/home.dart';
+
 
 class SignupScreen extends StatelessWidget {
   // TextEditingController emailController = TextEditingController();
@@ -217,8 +219,7 @@ class SignupScreen extends StatelessWidget {
                           // if (message != null) {
                           //   Fluttertoast.showToast(msg: message);
                           // }
-                          Get.to(()=>Home());
-                         
+                          Get.to(() => Home());
                         },
                         child: Row(
                           mainAxisSize: MainAxisSize.max,

@@ -1,3 +1,4 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -5,21 +6,26 @@ import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/food_controller.dart';
 import 'package:waste_not/widgets/meal.dart';
 
-import '../widgets/navigation_bar.dart';
-import '../widgets/search_container.dart';
-import '../widgets/sort_popup.dart';
+import '../../widgets/navigation_bar.dart';
+import '../../widgets/search_container.dart';
+import '../../widgets/sort_popup.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  GlobalKey _NavKey = GlobalKey();
+
+
   @override
   Widget build(BuildContext context) {
 //put get controller
-  final FoodController controller = Get.put(FoodController());
-
-
+    final FoodController controller = Get.put(FoodController());
 
     return Scaffold(
       backgroundColor: Colors.white,
-      bottomNavigationBar: const CustomNavigationBar(),
       appBar: AppBar(
         
         backgroundColor: Colors.transparent,
@@ -72,7 +78,6 @@ class Home extends StatelessWidget {
                 width: 1.w,
               ),
               IconButton(
-
                   onPressed: () {},
                   icon: GestureDetector(
                       onTap: () {
@@ -90,22 +95,19 @@ class Home extends StatelessWidget {
             ],
           ),
           Expanded(
-            child: GetX<FoodController>(
-              builder: (controller) {
-                return ListView.builder(
-
-                  itemBuilder: (context, i) {
-                    return  Meal(food: controller.foodList[i],);
-                  },
-                  itemCount: controller.foodList.length,
-                );
-              }
-            ),
+            child: GetX<FoodController>(builder: (controller) {
+              return ListView.builder(
+                itemBuilder: (context, i) {
+                  return Meal(
+                    food: controller.foodList[i],
+                  );
+                },
+                itemCount: controller.foodList.length,
+              );
+            }),
           )
         ],
       ),
     );
   }
 }
-
-
