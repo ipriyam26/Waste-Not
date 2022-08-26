@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:waste_not/auth/presentation/login.dart';
 
 import 'Dashboard/dashboard_page.dart';
 
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 3), () => Get.to(() => DasboardPage()));
+    Timer(const Duration(seconds: 3), () => Get.to(() => Login()));
   }
 
   @override
