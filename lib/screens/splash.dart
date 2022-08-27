@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/login_controller.dart';
 import 'package:waste_not/auth/controllers/user_controller.dart';
-import 'package:waste_not/auth/presentation/login.dart';
+import 'package:waste_not/screens/presentation/login.dart';
 
 import 'Dashboard/dashboard_page.dart';
 

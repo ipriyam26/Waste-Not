@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:waste_not/auth/presentation/login.dart';
 import 'package:waste_not/screens/Dashboard/dashboard_page.dart';
+import 'package:waste_not/screens/presentation/login.dart';
 
 class LoginController extends GetxController {
 final storage = const FlutterSecureStorage();

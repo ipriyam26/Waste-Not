@@ -3,7 +3,8 @@ import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/food_controller.dart';
-import 'package:waste_not/widgets/Caption_popup.dart';
+import 'package:waste_not/screens/AddFood/image_selector.dart';
+import 'package:waste_not/screens/AddFood/add_food.dart';
 import 'package:waste_not/widgets/meal.dart';
 
 import '../../widgets/search_container.dart';
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
       floatingActionButton: InkWell(
         onTap: () {
-          Get.to(Caption());
+          Get.to(AddFood());
         },
         child: Material(
           borderRadius: BorderRadius.circular(50),

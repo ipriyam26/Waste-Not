@@ -1,29 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class Caption extends StatelessWidget {
+class AddFood extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      body: Container(
+        margin: EdgeInsets.only(top: 50.h),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text("Add Food",
+            style: TextStyle(
+              fontSize: 27.sp,
+              fontWeight: FontWeight.bold,
+            ),
+            ),
             Padding(
-              padding: EdgeInsets.all(12.w),
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: const [
-                    BoxShadow(
-                      offset: Offset(2, 2),
-                      blurRadius: 12,
-                      color: Color.fromRGBO(0, 0, 0, 0.16),
-                    )
-                  ],
-                  borderRadius: BorderRadius.all(Radius.circular(12.sp)),
-                  color: Colors.white,
-                ),
+              padding: EdgeInsets.all(7.w),
+              child: SizedBox(
+                
                 height: 360.h,
                 width: 422.w,
                 child: Column(
@@ -54,22 +52,27 @@ class Caption extends StatelessWidget {
                             height: 61.h,
                             child: Image.asset('assets/image 11.png'),
                           ),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          const Text('Best Before .......'),
+                         
+                          TextField(
+                            
+                            decoration: InputDecoration(
+                              fillColor: Colors.red,
+                              helperText: "Food Name",
+                              border: InputBorder.none,
+                              helperStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 15.sp,
+                              ),
+                            ),
+                          )
+                          
                         ],
                       ),
                     ),
                     SizedBox(
                       height: 12.h,
                     ),
-                    const Divider(
-                      thickness: 0.2,
-                      indent: 12,
-                      endIndent: 12,
-                      color: Colors.black,
-                    ),
+                    
                     Padding(
                       padding:
                           EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
