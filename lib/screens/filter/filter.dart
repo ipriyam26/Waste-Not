@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:waste_not/widgets/navigation_bar.dart';
 
 class FilterScreen extends StatelessWidget {
   FilterScreen({Key? key}) : super(key: key);

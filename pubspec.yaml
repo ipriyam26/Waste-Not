@@ -50,6 +50,8 @@ dependencies:
   form_validator: ^1.0.2
   fluttertoast: ^8.0.9
   cloud_firestore: ^3.4.5
+  flutter_secure_storage: ^6.0.0
+  image_picker: ^0.8.5+3
 
 
 
