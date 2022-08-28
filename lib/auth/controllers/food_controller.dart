@@ -89,15 +89,15 @@ class NewFoodController extends GetxController {
     CollectionReference foodInst =
         FirebaseFirestore.instance.collection('foods');
     var post = foodInst.add(makeNewFoodModel().toMap()).then((value) {
-      Get.snackbar("Success", "Food Posted",
-          snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.green,
+      Get.snackbar(
+        "Success",
+        "Food Posted",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
       );
     }).onError((error, stackTrace) {
       Get.snackbar("Error", "Food not posted",
-      backgroundColor: Colors.red,
-      snackPosition: SnackPosition.BOTTOM
-      );
+          backgroundColor: Colors.red, snackPosition: SnackPosition.BOTTOM);
     });
   }
 }

@@ -4,11 +4,9 @@ import 'package:waste_not/models/food.dart';
 import '../widgets/foodWidgets.dart';
 
 class Food extends StatelessWidget {
-   const Food({
-    required this.food,
-    Key? key}) : super(key: key);
+  const Food({required this.food, Key? key}) : super(key: key);
   // int borderRadius = 12;
-final FoodModel food;
+  final FoodModel food;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -36,32 +34,24 @@ final FoodModel food;
           spacing: width * 0.0212,
           runSpacing: width * 0.0212,
           children: [
-            ImageDisplay(
-                height: height,
-                width: width,
-                link: food.imageUrl),
+            ImageDisplay(height: height, width: width, link: food.imageUrl),
             NameContainer(
-                width: width,
-                height: height,
-                foodName: foodName,
-                foodDescription: foodDescription,
-                foodLocation: foodLocation,
-                foodRating: foodRating,
-                foodServes: food.quantity,
-                ),
+              width: width,
+              height: height,
+              foodName: foodName,
+              foodDescription: foodDescription,
+              foodLocation: foodLocation,
+              foodRating: foodRating,
+              foodServes: food.quantity,
+            ),
             FoodDetails(height: height, des: des),
-            AddOn(width: width, height: height,addOn: addOn),
+            AddOn(width: width, height: height, addOn: addOn),
             // make a green button with circular border saying 'Send Request'
-            
+
             Button(width: width, height: height),
           ],
         ),
       ),
     );
   }
-
-
 }
-
-
-
