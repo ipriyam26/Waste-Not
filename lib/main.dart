@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:waste_not/screens/Dashboard/dashboard_page.dart';
+import 'package:waste_not/screens/profile/profile.dart';
 import 'package:waste_not/screens/splash.dart';
 
 import 'firebase_options.dart';

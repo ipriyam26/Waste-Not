@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../widgets/keyboard.dart';
+import 'message/messages.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({Key? key}) : super(key: key);
@@ -16,9 +19,14 @@ class ChatPage extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  icon: const Icon(
-                    Icons.arrow_back_ios,
-                    color: Colors.black,
+                  icon: GestureDetector(
+                    onTap: () {
+                      Get.off(Messages());
+                    },
+                    child: const Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.black,
+                    ),
                   ),
                   onPressed: () {},
                 ),
@@ -45,17 +53,6 @@ class ChatPage extends StatelessWidget {
           backgroundColor: Colors.transparent,
           elevation: 0,
           leadingWidth: 54,
-          // leading: Align(
-          //     alignment: Alignment.centerRight,
-          //     child: IconBackground(
-          //       icon: CupertinoIcons.back,
-          //       onTap: () {
-          //         Navigator.of(context).pop();
-          //       },
-          //     )),
-          // // title: AppBarTitle(
-          // //   messageData: messageData,
-          // // ),
         ),
       ),
     );
@@ -109,7 +106,7 @@ class AppBarTitle extends StatelessWidget {
           children: [
             const Text('fgdfg',
                 overflow: TextOverflow.ellipsis,
-                style:  TextStyle(
+                style: TextStyle(
                   fontSize: 14,
                 )),
             const SizedBox(
@@ -230,7 +227,8 @@ class _MessageTile extends StatelessWidget {
                   ],
                   borderRadius: const BorderRadius.all(Radius.circular(_br))),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                 child: Text(message),
               ),
             ),
@@ -282,7 +280,8 @@ class _MessageOwnTile extends StatelessWidget {
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(_br))),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                 child: Text(message),
               ),
             ),

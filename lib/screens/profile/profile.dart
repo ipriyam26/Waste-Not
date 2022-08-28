@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:waste_not/widgets/navigation_bar.dart';
 
@@ -36,20 +37,17 @@ class _ProfileScreenState extends State<ProfileScreen>
                         ),
                         Row(
                           children: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.edit,
-                                color: Colors.black,
-                              ),
+                            Icon(
+                              Icons.edit,
+                              color: Colors.black,
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.notifications,
-                                color: Colors.black,
-                              ),
-                            )
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Icon(
+                              Icons.notifications_none_outlined,
+                              color: Colors.black,
+                            ),
                           ],
                         ),
                       ],
@@ -60,7 +58,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                     children: [
                       CircleAvatar(
                         radius: 40.sp,
-                        backgroundImage: AssetImage('assets/user1.png'),
+                        backgroundImage: AssetImage('assets/notify1.png'),
                       ),
                       Row(
                         children: [
@@ -118,10 +116,11 @@ class _ProfileScreenState extends State<ProfileScreen>
             ),
             TabBar(
               unselectedLabelColor: Colors.black,
-              labelColor: Colors.red,
+              labelColor: Color(0xFFFE724C),
+              indicatorColor: Color(0xffF15C22),
               tabs: [
                 Tab(
-                  icon: Icon(Icons.person),
+                  child: Text('Donation'),
                 ),
                 Tab(
                   icon: Icon(
@@ -190,42 +189,107 @@ class donation_row extends StatelessWidget {
                   fit: BoxFit.fill,
                   image: AssetImage(image),
                 ),
-                color: Colors.black,
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(12.sp),
                     bottomLeft: Radius.circular(12.sp)),
               ),
             ),
-            Column(
-              children: [
-                Row(
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Chapati'),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Chapati',
+                          style: TextStyle(
+                              fontSize: 12.sp, fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 80.w,
+                        ),
+                        Row(
+                          children: [
+                            Container(
+                              child: RatingBar.builder(
+                                minRating: 1,
+                                direction: Axis.horizontal,
+                                allowHalfRating: true,
+                                itemCount: 5,
+                                itemSize: 20,
+                                itemBuilder: (context, _) => Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                onRatingUpdate: (rating) {
+                                  print(rating);
+                                },
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 10.sp),
+                              child: Text('2.5'),
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                     Row(
                       children: [
-                        IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.star,
-                              color: Colors.black,
-                            )),
-                        Padding(
-                          padding: EdgeInsets.only(right: 10.sp),
-                          child: Text('2.5'),
+                        Text(
+                          'Serves 2',
+                          style: TextStyle(fontSize: 10.sp),
                         ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.location_on_outlined,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          'Jl. Pemuda, 2 kms',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 12.sp),
+                        ),
+                        SizedBox(
+                          width: 30.w,
+                        ),
+                        Container(
+                          child: Center(
+                            child: Text('View more'),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFFE724C),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10.sp)),
+                          ),
+                          width: 90.w,
+                          height: 29.h,
+                        )
                       ],
                     )
                   ],
-                )
-              ],
+                ),
+              ),
             )
           ],
         ),
         decoration: BoxDecoration(
-          color: Colors.red,
+          color: Color(0xFFE5E4E4),
           borderRadius: BorderRadius.circular(12.sp),
         ),
-        width: 390.w,
+        width: 500.w,
         height: 100.h,
       ),
     );
