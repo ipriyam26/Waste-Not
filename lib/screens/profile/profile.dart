@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:waste_not/auth/controllers/login_controller.dart';
+import 'package:waste_not/auth/controllers/user_controller.dart';
 
 
 class ProfileScreen extends StatefulWidget {
@@ -11,157 +14,175 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen>
     with TickerProviderStateMixin {
+
+  final UserController userController = Get.put(UserController());
+final LoginController loginController = Get.put(LoginController());
   @override
   Widget build(BuildContext context) {
     TabController tabController = TabController(length: 2, vsync: this);
+    final UserController userController = Get.put(UserController());
     return Scaffold(
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            height: 350.h,
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 40.w, vertical: 60.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const Text(
-                        'My Profile',
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Row(
+      body: GetBuilder<UserController>(
+
+        builder: (userController) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 350.h,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 40.w, vertical: 60.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.edit,
-                              color: Colors.black,
-                            ),
+                          const Text(
+                            'My Profile',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.notifications,
-                              color: Colors.black,
-                            ),
-                          )
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.notifications,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              InkWell(
+                                onTap: (() {
+                                  loginController.logout();
+                                }),
+                                child: const Icon(Icons.logout_outlined))
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    CircleAvatar(
-                      radius: 40.sp,
-                      backgroundImage: const AssetImage('assets/user1.png'),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
+                        CircleAvatar(
+                          radius: 40.sp,
+                          backgroundImage: const AssetImage('assets/user1.png'),
+                        ),
+                        Row(
                           children: [
-                            const Text('2'),
+                            Column(
+                              children: [
+                                const Text('2'),
+                                SizedBox(
+                                  height: 9.h,
+                                ),
+                                const Text(
+                                  'Active Post',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                             SizedBox(
-                              height: 9.h,
+                              width: 8.w,
                             ),
-                            const Text(
-                              'Active Post',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
+                            Column(
+                              children: [
+                                const Text('20'),
+                                SizedBox(
+                                  height: 9.h,
+                                ),
+                                const Text(
+                                  'Donations',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )
                           ],
                         ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Column(
-                          children: [
-                            const Text('20'),
-                            SizedBox(
-                              height: 9.h,
-                            ),
-                            const Text(
-                              'Donations',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        )
                       ],
                     ),
+                    SizedBox(
+                      height: 12.w,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            userController.name != 
+                            ""?
+                              userController.name
+      :"Name Holder",
+      
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20.sp),
+                          ),
+                          const Text('Ji. Pemuda'),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-                SizedBox(
-                  height: 12.w,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Anika Dhawan',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20.sp),
-                      ),
-                      const Text('Ji. Pemuda'),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-          TabBar(
-            unselectedLabelColor: Colors.black,
-            labelColor: Colors.red,
-            tabs: const [
-              Tab(
-                icon: Icon(Icons.person),
               ),
-              Tab(
-                icon: Icon(
-                  Icons.add,
+              TabBar(
+                unselectedLabelColor: Colors.black,
+                labelColor: Colors.red,
+                tabs: const [
+                  Tab(
+                    icon: Icon(Icons.person),
+                  ),
+                  Tab(
+                    icon: Icon(
+                      Icons.add,
+                    ),
+                  ),
+                ],
+                controller: tabController,
+                indicatorSize: TabBarIndicatorSize.tab,
+              ),
+      
+              Expanded(
+                child: TabBarView(
+                  controller: tabController,
+                  children: [
+                    ListView(
+                      children: const [
+                        donation_row(
+                          image: 'assets/food1.png',
+                        ),
+                        donation_row(
+                          image: 'assets/food2.png',
+                        ),
+                        donation_row(
+                          image: 'assets/food3.png',
+                        ),
+                        donation_row(
+                          image: 'assets/food4.png',
+                        ),
+                      ],
+                    ),
+                    const Center(
+                      child: Text(
+                        'Screen 2',
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
-            controller: tabController,
-            indicatorSize: TabBarIndicatorSize.tab,
-          ),
-
-          Expanded(
-            child: TabBarView(
-              controller: tabController,
-              children: [
-                ListView(
-                  children: const [
-                    donation_row(
-                      image: 'assets/food1.png',
-                    ),
-                    donation_row(
-                      image: 'assets/food2.png',
-                    ),
-                    donation_row(
-                      image: 'assets/food3.png',
-                    ),
-                    donation_row(
-                      image: 'assets/food4.png',
-                    ),
-                  ],
-                ),
-                const Center(
-                  child: Text(
-                    'Screen 2',
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+          );
+        }
       ),
     );
   }
