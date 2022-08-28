@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -103,16 +102,16 @@ class AppBarTitle extends StatelessWidget {
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text('fgdfg',
+          children: const [
+            Text('fgdfg',
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 14,
                 )),
-            const SizedBox(
+            SizedBox(
               height: 2,
             ),
-            const Text(
+            Text(
               'Online',
               style: TextStyle(
                   fontSize: 10,
@@ -218,9 +217,9 @@ class _MessageTile extends StatelessWidget {
             Container(
               decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
-                  boxShadow: [
-                    const BoxShadow(
-                      offset: const Offset(2, 2),
+                  boxShadow: const [
+                    BoxShadow(
+                      offset: Offset(2, 2),
                       blurRadius: 12,
                       color: Color.fromRGBO(0, 0, 0, 0.32),
                     )

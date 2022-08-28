@@ -12,8 +12,9 @@ class CustomNavigationBar extends StatelessWidget {
       height: 55,
       buttonBackgroundColor: const Color(0xFFF49517),
       backgroundColor: Colors.transparent,
-      items: <Widget>[
-        Padding(
+
+      items:  const <Widget>[
+         Padding(
           padding: EdgeInsets.all(8.0),
           child: Icon(
             Icons.restaurant,

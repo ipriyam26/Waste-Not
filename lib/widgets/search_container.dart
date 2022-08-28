@@ -18,8 +18,21 @@ class search_container extends StatelessWidget {
     return Container(
       height: 36.h,
       width: 311.w,
+      decoration: BoxDecoration(
+boxShadow: [BoxShadow(
+  offset:  Offset.fromDirection(
+   -1,
+    3,
+  ),
+  blurRadius: 20.sp,
+  // color: Color(0xfff2f2f7)
+  color: const Color.fromRGBO(0, 0, 0, 0.2),
+)],
+          border: Border.all(color: const Color(0xFFBDBDBD)),
+          borderRadius: BorderRadius.circular(12.sp),
+          color: Colors.white),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: TextField(
           decoration: InputDecoration(
               border: InputBorder.none,
@@ -34,7 +47,7 @@ class search_container extends StatelessWidget {
                     animationType: DialogTransitionType.fadeScale,
                   );
                 },
-                child: Icon(
+                child: const Icon(
                   Icons.search,
                   color: Colors.black,
                 ),
@@ -42,10 +55,6 @@ class search_container extends StatelessWidget {
               hintText: heading),
         ),
       ),
-      decoration: BoxDecoration(
-          border: Border.all(color: Color(0xFFBDBDBD)),
-          borderRadius: BorderRadius.circular(12.sp),
-          color: Colors.transparent),
     );
   }
 }

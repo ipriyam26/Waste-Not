@@ -18,14 +18,14 @@ class SendingKeyboard extends StatelessWidget {
               width: 2,
               color: Theme.of(context).dividerColor,
             ))),
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 16),
               child: Icon(
                 CupertinoIcons.camera_fill,
               ),
             ),
           ),
-          Expanded(
+          const Expanded(
               child: Padding(
             padding: EdgeInsets.only(left: 16),
             child: TextField(
@@ -41,7 +41,7 @@ class SendingKeyboard extends StatelessWidget {
 
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.send,
                 color: Colors.black,
               ))

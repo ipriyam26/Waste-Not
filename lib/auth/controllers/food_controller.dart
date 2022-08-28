@@ -1,31 +1,38 @@
-import 'dart:convert';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/models/food.dart';
 
 class FoodController extends GetxController {
-  List<Map<String,dynamic>> foodList = <Map<String,dynamic>>[].obs;
+  List<FoodModel> foodList = <FoodModel>[].obs;
 
   @override
-  void onInit() {
-    CollectionReference foodInst =
-        FirebaseFirestore.instance.collection('food');
-List<Map<String,dynamic>> replies = [];
-    foodInst.limit(10).get().then((value) {
-      for (var element in value.docs) {
-        print(element.data());
-replies.add(element.data() as Map<String,dynamic>);
-      }
-//remove postedTime from each element in the list
-      
-foodList.addAll(replies);
+  Future<void> onInit() async {
+     CollectionReference foodInst =
+        FirebaseFirestore.instance.collection('foods');
+    var response =
+        await foodInst.orderBy('postedTime', descending: true).limit(10).get();
+    var foodItems = response.docs;
+    for (var foodItem in foodItems) {
+          var food = foodItem.data()! as Map<String, dynamic>;
+        FoodModel newModel = FoodModel(
+            title: food['title'],
+            description: food['description'],
+            imageUrl: food['imageUrl'],
+            latitude: food['latitude'],
+            longitude: food['longitude'],
+            quantity: food['quantity'],
+            user: UserLocal(
+              userId: food['userID']['userId'],
+              donations: food['userID']['donations'],
+              image: food['userID']['image'],
+            ),
+            location: food['location'],
+            isActive: food['isActive'],
+            postedTime: food['postedTime'],
+            rating: food['rating']);
+        foodList.add(newModel);
+    }
+       super.onInit();
 
-
-
-
-    });
-
-    super.onInit();
   }
 }
