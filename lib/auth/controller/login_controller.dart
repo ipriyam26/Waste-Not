@@ -13,19 +13,20 @@ class LoginController extends GetxController {
       final GoogleSignInAccount? googleSignInAccount =
           await googleSignIn.signIn();
 
-      if (googleSignInAccount != null) {
-        final GoogleSignInAuthentication? googleAuth =
-            await googleSignInAccount.authentication;
-        final credentials = GoogleAuthProvider.credential(
-          accessToken: googleAuth?.accessToken,
-          idToken: googleAuth?.idToken,
-        );
-      }
-    } on FirebaseAuthException catch (e) {
-      // ('Google login Failed', e);
-      print(e.message);
-    }
-  }
+
+//       if (googleSignInAccount != null) {
+//         final GoogleSignInAuthentication googleAuth =
+//             await googleSignInAccount.authentication;
+//         final credentials = GoogleAuthProvider.credential(
+//           accessToken: googleAuth.accessToken,
+//           idToken: googleAuth.idToken,
+//         );
+//       }
+//     } on FirebaseAuthException catch (e) {
+//       // ('Google login Failed', e);
+//       print(e.message);
+//     }
+//   }
 
   //Sign out
   signOut() {

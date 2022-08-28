@@ -10,11 +10,11 @@ class NotificationScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back_ios,
           color: Colors.black,
         ),
-        title: Text(
+        title: const Text(
           'Notifications',
           style: TextStyle(color: Colors.black),
         ),
@@ -23,7 +23,7 @@ class NotificationScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Divider(
+            const Divider(
               thickness: 0.2,
               color: Colors.black,
             ),
@@ -42,17 +42,17 @@ class NotificationScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 20.sp,
-                  backgroundImage: AssetImage('assets/notify1.png'),
+                  backgroundImage: const AssetImage('assets/notify1.png'),
                 ),
-                Text('Shyam requested your food. 1h'),
-                Container(
+                const Text('Shyam requested your food. 1h'),
+                SizedBox(
                   height: 44.h,
                   width: 43.18.w,
                   child: Image.asset('assets/notify2.png'),
                 ),
               ],
             ),
-            Divider(
+            const Divider(
               thickness: 0.2,
               color: Colors.black,
             ),
@@ -74,7 +74,7 @@ class NotificationScreen extends StatelessWidget {
                     color: Colors.transparent,
                     child: Stack(
                       children: <Widget>[
-                        Positioned(
+                        const Positioned(
                           left: 0,
                           child: CircleAvatar(
                             backgroundColor: Colors.transparent,
@@ -85,7 +85,7 @@ class NotificationScreen extends StatelessWidget {
                           left: 10.w,
                           top: 8.w,
                           bottom: 0,
-                          child: CircleAvatar(
+                          child: const CircleAvatar(
                             backgroundImage: AssetImage('assets/notify4.png'),
                             backgroundColor: Colors.transparent,
                           ),
@@ -94,11 +94,11 @@ class NotificationScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Text(
+                const Text(
                   'kiero_d, zackjohn and 26 others\n requested your food. 3h',
                   textAlign: TextAlign.left,
                 ),
-                Container(
+                SizedBox(
                   height: 44.h,
                   width: 43.18.w,
                   child: Image.asset('assets/notify2.png'),
@@ -108,7 +108,7 @@ class NotificationScreen extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-            Divider(
+            const Divider(
               thickness: 0.2,
               color: Colors.black,
             ),
@@ -127,10 +127,10 @@ class NotificationScreen extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 20.sp,
-                  backgroundImage: AssetImage('assets/notify5.png'),
+                  backgroundImage: const AssetImage('assets/notify5.png'),
                 ),
-                Text('craig_love requested your food.2d.'),
-                Container(
+                const Text('craig_love requested your food.2d.'),
+                SizedBox(
                   height: 44.h,
                   width: 43.18.w,
                   child: Image.asset('assets/notify6.png'),
@@ -140,28 +140,28 @@ class NotificationScreen extends StatelessWidget {
             SizedBox(
               height: 20.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week1.png',
               notification: 'martini_rond started\n messaging you. 3d',
             ),
             SizedBox(
               height: 20.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week2.png',
               notification: 'maxjacobson started\n messaging you. 3d',
             ),
             SizedBox(
               height: 20.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week3.png',
               notification: 'mis_potter started\n messaging you. 3d',
             ),
             SizedBox(
               height: 12.h,
             ),
-            Divider(
+            const Divider(
               thickness: 0.2,
               color: Colors.black,
             ),
@@ -178,21 +178,21 @@ class NotificationScreen extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week1.png',
               notification: 'martini_rond started\n messaging you. 3d',
             ),
             SizedBox(
               height: 20.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week2.png',
               notification: 'maxjacobson started\n messaging you. 3d',
             ),
             SizedBox(
               height: 20.h,
             ),
-            thisweekRow(
+            const thisweekRow(
               image: 'assets/week3.png',
               notification: 'mis_potter started\n messaging you. 3d',
             ),
@@ -223,13 +223,13 @@ class thisweekRow extends StatelessWidget {
         Container(
           height: 40.h,
           width: 80.w,
-          child: Center(
-            child: Text('Message'),
-          ),
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.grey),
             color: Colors.transparent,
             borderRadius: BorderRadius.all(Radius.circular(10.sp)),
+          ),
+          child: const Center(
+            child: Text('Message'),
           ),
         ),
       ],
