@@ -6,6 +6,7 @@ class UserModel {
   final String address;
   final String phoneNumber;
   final String gender;
+  final int donations;
 
   UserModel({
     required this.name,
@@ -15,6 +16,7 @@ class UserModel {
     required this.address,
     required this.phoneNumber,
     required this.gender,
+    final this.donations = 0,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> response) {
@@ -25,7 +27,9 @@ class UserModel {
         photoUrl: response['photoUrl'],
         address: response['address'],
         phoneNumber: response['phoneNumber'],
-        gender: response['gender']);
+        gender: response['gender'],
+        donations: response['donations']
+        );
   }
 
   Map<String, dynamic> toMap() {
@@ -36,7 +40,8 @@ class UserModel {
       'photoUrl': photoUrl,
       'address': address,
       'phone': phoneNumber,
-      'gender': gender
+      'gender': gender,
+      'donations': donations
     };
   }
 }

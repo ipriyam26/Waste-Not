@@ -52,6 +52,7 @@ dependencies:
   cloud_firestore: ^3.4.5
   flutter_secure_storage: ^6.0.0
   image_picker: ^0.8.5+3
+  geolocator: ^9.0.1
 
 
 

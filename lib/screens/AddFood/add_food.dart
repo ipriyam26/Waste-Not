@@ -1,192 +1,175 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:waste_not/auth/controllers/food_controller.dart';
+import 'package:waste_not/auth/controllers/user_controller.dart';
 
 class AddFood extends StatelessWidget {
-
+  // put get controller
+  final UserController controller = Get.put(UserController());
+  final NewFoodController newFoodController = Get.put(NewFoodController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
-        margin: EdgeInsets.only(top: 50.h),
+        margin: EdgeInsets.only(top: 40.h),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Add Food",
-            style: TextStyle(
-              fontSize: 27.sp,
-              fontWeight: FontWeight.bold,
-            ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(7.w),
-              child: SizedBox(
-                
-                height: 360.h,
-                width: 422.w,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.sp),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: const [
-                          Text('Cancel'),
-                          Text(
+            Container(
+              child: Column(children: [
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 14.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                          onPressed: null,
+                          child: Text(
+                            'Cancel',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.sp,
+                            ),
+                          )),
+                      TextButton(
+                          onPressed: null,
+                          child: Text(
                             'Share',
-                            style: TextStyle(color: Colors.orange),
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 8.w),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                            style: TextStyle(
+                                color: Colors.orange[800],
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w700),
+                          )),
+                    ],
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 38.h, right: 14.w, left: 14.w),
+                  child: Column(
+                    children: [
+                      Row(
                         children: [
-                          SizedBox(
+                          Image.asset(
+                            'assets/food1.png',
                             width: 62.w,
                             height: 61.h,
-                            child: Image.asset('assets/image 11.png'),
                           ),
-                         
-                          TextField(
-                            
-                            decoration: InputDecoration(
-                              fillColor: Colors.red,
-                              helperText: "Food Name",
-                              border: InputBorder.none,
-                              helperStyle: TextStyle(
-                                color: Colors.black,
-                                fontSize: 15.sp,
-                              ),
+                          SizedBox(
+                            height: 61.h,
+                            width: 270.w,
+                            child: TextField(
+                              textAlign: TextAlign.left,
+                              keyboardType: TextInputType.text,
+                              autocorrect: false,
+                              onChanged: (value) {},
+                              decoration: InputDecoration(
+                                  hintText: 'Title',
+                                  border: InputBorder.none,
+                                  filled: true,
+                                  contentPadding: EdgeInsets.all(16.sp),
+                                  fillColor: Colors.white),
                             ),
                           )
-                          
                         ],
                       ),
-                    ),
-                    SizedBox(
-                      height: 12.h,
-                    ),
-                    
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
-                      child: Row(
-                        children: [
-                          const Text('Caption....'),
-                          SizedBox(
-                            width: 40.w,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 0.2,
-                      indent: 12,
-                      endIndent: 12,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.w),
-                      child: Row(
-                        children: [
-                          const Text('Add Location'),
-                          SizedBox(
-                            width: 40.w,
-                          ),
-                          Row(
-                            children: const [
-                              Icon(
-                                Icons.location_on_outlined,
-                                color: Colors.black,
-                              ),
-                              Text('Dhaka, Banassre'),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Divider(
-                      thickness: 0.2,
-                      indent: 12,
-                      endIndent: 12,
-                      color: Colors.black,
-                    ),
-                    Row(
-                      children: [
-                        const Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.black,
-                        ),
-                        const Text('Serves'),
-                        SizedBox(
-                          width: 65.w,
-                        ),
-                        Container(
-                          width: 30.w,
-                          height: 30.w,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.sp)),
-                          ),
-                          child: Icon(Icons.remove,
-                          color: Colors.amber[800],
-                          ),
-                        ),
-
                       Container(
-                        margin: EdgeInsets.symmetric(horizontal: 10.w),
-                        child:  Text('1',
-                        style: TextStyle(
-                         fontSize: 20.sp 
-                        ),
+                        margin: EdgeInsets.only(top: 23.h),
+                        child: TextField(
+                          minLines: 2,
+                          maxLines: 10,
+                          decoration: InputDecoration(
+                              hintText: 'Description',
+                              border: InputBorder.none,
+                              filled: true,
+                              contentPadding:
+                                  EdgeInsets.symmetric(vertical: 3.sp),
+                              fillColor: Colors.white),
                         ),
                       ),
-                        
-                        Container(
-                          
-                          width: 30.w,
-                          height: 30.w,
-                          decoration: BoxDecoration(
-                            border: Border.all(color: Colors.grey),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.sp)),
-                          ),
-                          child: Icon(Icons.add,
-                          color: Colors.amber[800],
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Row(
-                        children: [
-                          const Text('Add Rating'),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          const Icon(Icons.star),
-                          const Icon(Icons.star),
-                          const Icon(Icons.star),
-                          const Icon(Icons.star),
-                          const Icon(Icons.star),
-                        ],
+                      Container(
+                        margin: EdgeInsets.only(top: 16.h),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: 110.w,
+                              child: Text(
+                                "Add Location",
+                                style: TextStyle(
+                                  fontSize: 16.sp,
+                                ),
+                              ),
+                            ),
+                            
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.location_on_outlined,
+                                  color: Color(0xff393636),
+                                ),
+                                SizedBox(
+                                  width: 4.w,
+                                ),
+                                Text(
+                                  "${controller.position.latitude.toStringAsFixed(2)},  ${controller.position.longitude.toStringAsFixed(2)}",
+                                  style: TextStyle(
+                                    fontSize: 16.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
+                    Container(
+                                             margin: EdgeInsets.only(top: 16.h),
+child: Row(
+  children: [
+    SizedBox(
+      width: 110.w,
+      child: Text("Serves", style: TextStyle(fontSize: 16.sp),)),
+
+    Row(
+      children: [
+        IconButton(
+          padding: EdgeInsets.zero,
+          onPressed: (){
+          newFoodController.quantity.value--;
+
+        }, icon:  Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(5.r)
+          ),
+          child: const Icon(Icons.remove,
+          color: Colors.grey,
+          ),
+        )
+        
+        ),
+        Text("${newFoodController.quantity.value}", style: TextStyle(fontSize: 18.sp),),
+         IconButton(onPressed: (){
+          newFoodController.quantity.value++;
+
+        }, icon:  Container(
+          decoration: BoxDecoration(border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.circular(5.r)
+          ),
+          child: Icon(Icons.add,
+          color: Colors.orange[800],
+          ),
+        )
+        
+        ),
+      ],
+    )
+  ],
+), 
                     )
-                  ],
-                ),
-              ),
+                    ],
+                  ),
+                )
+              ]),
             )
           ],
         ),
