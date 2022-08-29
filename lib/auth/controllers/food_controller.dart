@@ -47,9 +47,36 @@ class NewFoodController extends GetxController {
   var location = ''.obs;
   var quantity = 0.obs;
   var imageUrl = ''.obs;
-  var rating = 0.0.obs;
 
   final UserController userController = Get.find<UserController>();
+// make getter and setter for imageUrl
+  void changeTitle(String newTitle) {
+    title.value = newTitle;
+    update();
+  }
+  void changeDescription(String newDescription) {
+    description.value = newDescription;
+    update();
+  }
+  void changeLocation(String newLocation) {
+    location.value = newLocation;
+    update();
+  }
+  
+
+  // increment the quantity of the food item
+  void incrementQuantity() {
+    quantity.value++;
+    update();
+  }
+
+  // decrement the quantity of the food item
+  void decrementQuantity() {
+    if (quantity.value > 0) {
+      quantity.value--;
+      update();
+    }
+  }
 
   // empty all
   void emptyAll() {
@@ -60,7 +87,6 @@ class NewFoodController extends GetxController {
     location.value = '';
     quantity.value = 0;
     imageUrl.value = '';
-    rating.value = 0.0;
   }
 
 // make new foodModel
@@ -69,12 +95,12 @@ class NewFoodController extends GetxController {
     FoodModel newFood = FoodModel(
         title: title.value,
         description: description.value,
-        latitude: latitude.value,
-        longitude: longitude.value,
+        latitude: userController.position.latitude,
+        longitude: userController.position.longitude,
         location: location.value,
         quantity: quantity.value,
         imageUrl: imageUrl.value,
-        rating: rating.value,
+        rating: userController.user.value.ratings,
         isActive: true,
         postedTime: DateTime.now().microsecondsSinceEpoch,
         user: UserLocal(
@@ -89,15 +115,15 @@ class NewFoodController extends GetxController {
     CollectionReference foodInst =
         FirebaseFirestore.instance.collection('foods');
     var post = foodInst.add(makeNewFoodModel().toMap()).then((value) {
-      Get.snackbar("Success", "Food Posted",
-          snackPosition: SnackPosition.BOTTOM,
-      backgroundColor: Colors.green,
+      Get.snackbar(
+        "Success",
+        "Food Posted",
+        snackPosition: SnackPosition.BOTTOM,
+        backgroundColor: Colors.green,
       );
     }).onError((error, stackTrace) {
       Get.snackbar("Error", "Food not posted",
-      backgroundColor: Colors.red,
-      snackPosition: SnackPosition.BOTTOM
-      );
+          backgroundColor: Colors.red, snackPosition: SnackPosition.BOTTOM);
     });
   }
 }
