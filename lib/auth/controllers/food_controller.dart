@@ -49,6 +49,11 @@ class NewFoodController extends GetxController {
   var imageUrl = ''.obs;
 
   final UserController userController = Get.find<UserController>();
+  @override
+  void onInit() {
+    print("NewFoodController initialized");
+    super.onInit();
+  }
 // make getter and setter for imageUrl
   void changeTitle(String newTitle) {
     title.value = newTitle;

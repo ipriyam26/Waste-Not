@@ -45,11 +45,12 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Container(
+
           width: 130.w,
           height: 100.h,
           decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/WN 1.png'), fit: BoxFit.fill),
+                image: AssetImage('assets/WN 3.png'), fit: BoxFit.fill),
           ),
         ),
         title: Row(
