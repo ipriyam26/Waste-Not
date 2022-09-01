@@ -39,6 +39,8 @@ class FoodController extends GetxController {
   }
 }
 
+
+
 class NewFoodController extends GetxController {
   var title = ''.obs;
   var description = ''.obs;
@@ -54,20 +56,22 @@ class NewFoodController extends GetxController {
     print("NewFoodController initialized");
     super.onInit();
   }
+
 // make getter and setter for imageUrl
   void changeTitle(String newTitle) {
     title.value = newTitle;
     update();
   }
+
   void changeDescription(String newDescription) {
     description.value = newDescription;
     update();
   }
+
   void changeLocation(String newLocation) {
     location.value = newLocation;
     update();
   }
-  
 
   // increment the quantity of the food item
   void incrementQuantity() {

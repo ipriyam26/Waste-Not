@@ -17,7 +17,7 @@ class DasboardPage extends StatelessWidget {
     Home(),
     const Messages(),
     FilterScreen(),
-    const ProfileScreen(),
+     ProfileScreen(),
   ];
 
   @override
