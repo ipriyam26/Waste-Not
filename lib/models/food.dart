@@ -1,6 +1,3 @@
-
-
-
 class UserLocal {
   String userId;
   int donations;
@@ -21,21 +18,18 @@ class UserLocal {
 }
 
 class FoodModel {
-
- 
-  FoodModel({
-    required this.title,
-    required this.description,
-    required this.imageUrl,
-    required this.latitude,
-    required this.longitude,
-    required this.quantity,
-    required this.user,
-    required this.location,
-    required this.isActive,
-    required this.postedTime,
-    required this.rating
-  });
+  FoodModel(
+      {required this.title,
+      required this.description,
+      required this.imageUrl,
+      required this.latitude,
+      required this.longitude,
+      required this.quantity,
+      required this.user,
+      required this.location,
+      required this.isActive,
+      required this.postedTime,
+      required this.rating});
   final String title;
   final String description;
   final int quantity;
@@ -45,7 +39,7 @@ class FoodModel {
   final double longitude;
   final bool isActive;
   final UserLocal user;
-  final double rating ;
+  final double rating;
   final String location;
 
   Map<String, dynamic> toMap() {
@@ -61,22 +55,10 @@ class FoodModel {
       'rating': rating,
       'location': location,
       'isActive': isActive,
-      
     };
   }
-
- 
-
- 
 }
-
 
 // To parse this JSON data, do
 //
 //     final foodModel = foodModelFromJson(jsonString);
-
-
-
-
-
-

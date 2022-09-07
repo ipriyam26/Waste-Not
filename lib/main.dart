@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'package:firebase_core/firebase_core.dart';
+import 'package:waste_not/screens/profile/profile.dart';
 import 'package:waste_not/screens/splash.dart';
 
 import 'firebase_options.dart';
@@ -25,12 +26,11 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       //designSize: const Size(360, 720),
       minTextAdapt: true,
-
       splitScreenMode: true,
       builder: (context, a) {
         return const GetMaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SplashScreen(),
+          home: ProfileScreen(),
         );
       },
     );

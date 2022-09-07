@@ -41,6 +41,7 @@ dependencies:
   carousel_slider: ^4.1.1
   google_nav_bar:
   line_icons:
+  flutter_rating_bar: ^4.0.1
   get: ^4.6.5
   flutter_animated_dialog: ^2.0.1
   syncfusion_flutter_sliders:
@@ -51,6 +52,7 @@ dependencies:
   cloud_firestore: ^3.4.5
   flutter_secure_storage: ^6.0.0
   image_picker: ^0.8.5+3
+  geolocator: ^9.0.1
 
 
 
