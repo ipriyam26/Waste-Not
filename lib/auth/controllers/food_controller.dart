@@ -39,8 +39,6 @@ class FoodController extends GetxController {
   }
 }
 
-
-
 class NewFoodController extends GetxController {
   var title = ''.obs;
   var description = ''.obs;
@@ -130,6 +128,7 @@ class NewFoodController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green,
       );
+      Get.back();
     }).onError((error, stackTrace) {
       Get.snackbar("Error", "Food not posted",
           backgroundColor: Colors.red, snackPosition: SnackPosition.BOTTOM);

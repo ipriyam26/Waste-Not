@@ -17,8 +17,8 @@ class UserModel {
     required this.address,
     required this.phoneNumber,
     required this.gender,
-    final this.donations = 0,
-    final this.ratings = 0.0,
+    this.donations = 0,
+    this.ratings = 0.0,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> response) {

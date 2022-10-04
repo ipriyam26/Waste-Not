@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/login_controller.dart';
+import 'package:waste_not/screens/presentation/signup.dart';
 
 class Login extends StatelessWidget {
 // put login controller
@@ -171,11 +172,16 @@ class Login extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text('Don\'t have an account ?'),
-                    Text(
-                      ' Create Account',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                  children: [
+                    const Text('Don\'t have an account ?'),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => SignupScreen());
+                      },
+                      child: const Text(
+                        ' Create Account',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 )

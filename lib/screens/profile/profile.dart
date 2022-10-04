@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/food_controller.dart';
+import 'package:waste_not/auth/controllers/login_controller.dart';
 import 'package:waste_not/auth/controllers/user_controller.dart';
 import 'package:waste_not/auth/controllers/userfood_controller.dart';
 import 'package:waste_not/widgets/meal.dart';
@@ -20,6 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     with TickerProviderStateMixin {
   final UserFoodController userFoodController = Get.put(UserFoodController());
   final UserController user = Get.put(UserController());
+  final LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -28,122 +30,127 @@ class _ProfileScreenState extends State<ProfileScreen>
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: 300.h,
-            color: Colors.white,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      EdgeInsets.only(left: 40.w,right:40.w, top: 60.h,bottom: 30.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                       Text(
-                        'My Profile',
-                        style: TextStyle(fontWeight: FontWeight.bold,
-                        fontSize: 16.sp
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.edit,
-                              color: Colors.black,
-                            ),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.notifications,
-                              color: Colors.black,
-                            ),
-                          ),
-                          InkWell(
-                              onTap: (() {
-                                // loginController.logout();
-                              }),
-                              child: const Icon(Icons.logout_outlined))
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+          GetBuilder<UserController>(
+
+            builder: (controller) {
+              return Container(
+                height: 300.h,
+                color: Colors.white,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipOval(
-                      child: Image.network(
-                        user.user.value.photoUrl,
-                        height: 70.h,
-                        width: 70.w,
-                        fit: BoxFit.fill,
+                    Padding(
+                      padding:
+                          EdgeInsets.only(left: 40.w,right:40.w, top: 60.h,bottom: 30.h),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                           Text(
+                            'My Profile',
+                            style: TextStyle(fontWeight: FontWeight.bold,
+                            fontSize: 16.sp
+                            ),
+                          ),
+                          Row(
+                            children: [
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.edit,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              IconButton(
+                                onPressed: () {},
+                                icon: const Icon(
+                                  Icons.notifications,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              InkWell(
+                                  onTap: (() {
+                                    loginController.logout();
+                                  }),
+                                  child: const Icon(Icons.logout_outlined))
+                            ],
+                          ),
+                        ],
                       ),
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Column(
+                        ClipOval(
+                          child: Image.network(
+                            controller.user.value.photoUrl,
+                            height: 70.h,
+                            width: 70.w,
+                            fit: BoxFit.fill,
+                          ),
+                        ),
+                        Row(
                           children: [
-                            const Text('2'),
+                            Column(
+                              children: [
+                                 Text(controller.user.value.donations.toString()),
+                                SizedBox(
+                                  height: 9.h,
+                                ),
+                                const Text(
+                                  'Active Post',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
                             SizedBox(
-                              height: 9.h,
+                              width: 8.w,
                             ),
-                            const Text(
-                              'Active Post',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
+                            Column(
+                              children: [
+                                 Text(controller.user.value.donations.toString()),
+                                SizedBox(
+                                  height: 9.h,
+                                ),
+                                const Text(
+                                  'Donations',
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            )
                           ],
                         ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
-                        Column(
-                          children: [
-                             Text(user.user.value.donations.toString()),
-                            SizedBox(
-                              height: 9.h,
-                            ),
-                            const Text(
-                              'Donations',
-                              style: TextStyle(fontWeight: FontWeight.bold),
-                            ),
-                          ],
-                        )
                       ],
                     ),
+                    SizedBox(
+                      height: 12.w,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 40.w),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            controller.name ,
+                        
+          
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20.sp),
+                          ),
+                          SizedBox(
+                            height: 4.h,),
+                           Text(
+          controller.user.value.address,
+                            style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 14.sp),
+          
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-                SizedBox(
-                  height: 12.w,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 40.w),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        user.name ,
-                    
-
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 20.sp),
-                      ),
-                      SizedBox(
-                        height: 4.h,),
-                       Text(
-user.user.value.address,
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400, fontSize: 14.sp),
-
-                      ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+              );
+            }
           ),
           TabBar(
             unselectedLabelColor: Colors.black,

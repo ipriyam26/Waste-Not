@@ -64,7 +64,42 @@ class FoodModel {
       
     };
   }
+factory FoodModel.fromMap(Map<String, dynamic> map) {
+    return FoodModel(
+      title: map['title'],
+      description: map['description'],
+      quantity: map['quantity'],
+      imageUrl: map['imageUrl'],
+      postedTime: map['postedTime'],
+      latitude: map['latitude'],
+      longitude: map['longitude'],
+      user: UserLocal(
+        userId: map['userID']['userId'],
+        donations: map['userID']['donations'],
+        image: map['userID']['image'],
+      ),
+      rating: map['rating'],
+      location: map['location'],
+      isActive: map['isActive'],
+    );
 
+        // title: food['title'],
+        //   description: food['description'],
+        //   imageUrl: food['imageUrl'],
+        //   latitude: food['latitude'],
+        //   longitude: food['longitude'],
+        //   quantity: food['quantity'],
+        //   user: UserLocal(
+        //     userId: food['userID']['userId'],
+        //     donations: food['userID']['donations'],
+        //     image: food['userID']['image'],
+        //   ),
+        //   location: food['location'],
+        //   isActive: food['isActive'],
+        //   postedTime: food['postedTime'],
+        //   rating: food['rating']
+          
+  }
  
 
  
