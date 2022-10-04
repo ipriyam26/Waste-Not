@@ -49,20 +49,27 @@ class NewFoodController extends GetxController {
   var imageUrl = ''.obs;
 
   final UserController userController = Get.find<UserController>();
+  @override
+  void onInit() {
+    print("NewFoodController initialized");
+    super.onInit();
+  }
+
 // make getter and setter for imageUrl
   void changeTitle(String newTitle) {
     title.value = newTitle;
     update();
   }
+
   void changeDescription(String newDescription) {
     description.value = newDescription;
     update();
   }
+
   void changeLocation(String newLocation) {
     location.value = newLocation;
     update();
   }
-  
 
   // increment the quantity of the food item
   void incrementQuantity() {
@@ -121,6 +128,7 @@ class NewFoodController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
         backgroundColor: Colors.green,
       );
+      Get.back();
     }).onError((error, stackTrace) {
       Get.snackbar("Error", "Food not posted",
           backgroundColor: Colors.red, snackPosition: SnackPosition.BOTTOM);

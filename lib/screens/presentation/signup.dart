@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:waste_not/auth/controllers/signup_controller.dart';
 import 'package:waste_not/screens/home/home.dart';
+import 'package:waste_not/screens/presentation/login.dart';
 
 
 class SignupScreen extends StatelessWidget {
@@ -38,7 +39,7 @@ class SignupScreen extends StatelessWidget {
               ),
               Container(
                 width: 331.w,
-                height: 410.h,
+                height: 370.h,
                 decoration: BoxDecoration(
                   boxShadow: const [
                     BoxShadow(
@@ -164,45 +165,7 @@ class SignupScreen extends StatelessWidget {
                       SizedBox(
                         height: 20.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                  offset: Offset(2, 2),
-                                  blurRadius: 12,
-                                  color: Color.fromRGBO(0, 0, 0, 0.16),
-                                )
-                              ],
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(12.sp)),
-                              color: Colors.white,
-                            ),
-                            height: 42.45.h,
-                            width: 132.59.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.network(
-                                    'https://img.icons8.com/color/48/000000/google-logo.png',
-                                    height: 30.h,
-                                    width: 30.w),
-                                SizedBox(
-                                  width: 5.w,
-                                ),
-                                Text(
-                                  'Google',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14.sp),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                      
                       SizedBox(
                         height: 20.h,
                       ),
@@ -235,7 +198,7 @@ class SignupScreen extends StatelessWidget {
                                       BorderRadius.all(Radius.circular(12.sp))),
                               child: Center(
                                 child: Text(
-                                  'Login',
+                                  'Sign Up',
                                   style: TextStyle(
                                       fontSize: 20.sp,
                                       fontWeight: FontWeight.bold,
@@ -249,7 +212,26 @@ class SignupScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
+              ),
+              SizedBox(height: 20.h,),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Already have an account?'),
+                    SizedBox(
+                      width: 5.w,
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Get.to(() => Login());
+                      },
+                      child: const Text(
+                        'Login now',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                )
             ],
           ),
         ));
