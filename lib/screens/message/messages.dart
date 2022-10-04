@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:waste_not/screens/chat.dart';
 
 class Messages extends StatelessWidget {
   const Messages({Key? key}) : super(key: key);
@@ -38,7 +41,7 @@ class Messages extends StatelessWidget {
           ),
           Expanded(
             child: ListView(
-              children: const [
+              children: [
                 MessageTile(
                   username: 'Danny Hopkins',
                   message: 'dannylove@gmail.com',
@@ -98,42 +101,47 @@ class MessageTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.sp),
-      child: Container(
-        height: 100.w,
-        width: 100.w,
-        color: Colors.transparent,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 45.sp,
-                  backgroundColor: Colors.transparent,
-                  child: Image.asset(
-                    image,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      username,
-                      style: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                      overflow: TextOverflow.ellipsis,
+      child: InkWell(
+        onTap: () {
+          Get.to(ChatPage());
+        },
+        child: Container(
+          height: 100.w,
+          width: 100.w,
+          color: Colors.transparent,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 45.sp,
+                    backgroundColor: Colors.transparent,
+                    child: Image.asset(
+                      image,
+                      fit: BoxFit.fill,
                     ),
-                    Text(message)
-                  ],
-                ),
-              ],
-            ),
-            const Text('08:43')
-          ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        username,
+                        style: TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.bold),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(message)
+                    ],
+                  ),
+                ],
+              ),
+              const Text('08:43')
+            ],
+          ),
         ),
       ),
     );
